@@ -1,0 +1,20 @@
+1512442957171	Rename resource 'pom.xml'
+1512442968100	Delete element
+1512518392286	Rename package 'com.betha.projeto_manutencao.persistence'
+1512518399022	Delete element
+1512518411297	Rename package 'com.betha.projeto_manutencao.service.impl'
+1512518487074	Rename package 'com.betha.projeto_manutencao.model.entity'
+1512518948009	Delete elements
+1512519027877	Rename type 'LoginResponseDTO'
+1512523779996	Copy compilation unit
+1512523962230	Copy compilation unit
+1512611158997	Delete elements
+1512611325707	Delete element
+1512611344055	Delete element
+1512614623208	Copy compilation unit
+1512615254049	Copy compilation unit
+1512617284452	Rename type 'ClienteResponseDTO'
+1512617322977	Rename type 'ClienteResponseDTO2'
+1512782618097	Rename type 'MaquinaService'
+1512782736731	Rename type 'MaquinaResponseDTO'
+1512782831650	Rename local variable 'maquinasResponse'

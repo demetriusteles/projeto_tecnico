@@ -1,0 +1,138 @@
+package com.betha.projeto_manutencao.model.dto;
+
+import java.util.Calendar;
+
+public class PedidoResponseDTO {
+
+	private Integer id;
+	private String tipoMaquina;
+	private String marca;
+	private String problema;
+	private Integer idCliente;
+	private Calendar dtEntrada;
+	private String foto;
+	private String status;
+	
+	public PedidoResponseDTO(String tipoMaquina, String marca, String problema, 
+			Integer idCliente, Calendar dtEntrada, String foto, String status) {
+		super();
+		this.tipoMaquina = tipoMaquina;
+		this.marca = marca;
+		this.problema = problema;
+		this.idCliente = idCliente;
+		this.dtEntrada = dtEntrada;
+		this.foto = foto;
+		this.status = status;
+	}
+
+	/**
+	 * @return the tipoMaquina
+	 */
+	public String getTipoMaquina() {
+		return tipoMaquina;
+	}
+
+	/**
+	 * @param tipoMaquina the tipoMaquina to set
+	 */
+	public void setTipoMaquina(String tipoMaquina) {
+		this.tipoMaquina = tipoMaquina;
+	}
+
+	/**
+	 * @return the marca
+	 */
+	public String getMarca() {
+		return marca;
+	}
+
+	/**
+	 * @param marca the marca to set
+	 */
+	public void setMarca(String marca) {
+		this.marca = marca;
+	}
+
+	/**
+	 * @return the problema
+	 */
+	public String getProblema() {
+		return problema;
+	}
+
+	/**
+	 * @param problema the problema to set
+	 */
+	public void setProblema(String problema) {
+		this.problema = problema;
+	}
+
+	/**
+	 * @return the idCliente
+	 */
+	public Integer getIdCliente() {
+		return idCliente;
+	}
+
+	/**
+	 * @param idCliente the idCliente to set
+	 */
+	public void setIdCliente(Integer idCliente) {
+		this.idCliente = idCliente;
+	}
+
+	/**
+	 * @return the dtEntrada
+	 */
+	public Calendar getDtEntrada() {
+		return dtEntrada;
+	}
+
+	/**
+	 * @param dtEntrada the dtEntrada to set
+	 */
+	public void setDtEntrada(Calendar dtEntrada) {
+		this.dtEntrada = dtEntrada;
+	}
+
+	/**
+	 * @return the foto
+	 */
+	public String getFoto() {
+		return foto;
+	}
+
+	/**
+	 * @param foto the foto to set
+	 */
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
+
+	/**
+	 * @return the status
+	 */
+	public String getStatus() {
+		return status;
+	}
+
+	/**
+	 * @param status the status to set
+	 */
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	/**
+	 * @return the id
+	 */
+	public Integer getId() {
+		return id;
+	}
+
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(Integer id) {
+		this.id = id;
+	}}

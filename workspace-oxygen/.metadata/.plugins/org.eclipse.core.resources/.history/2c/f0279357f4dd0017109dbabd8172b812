@@ -1,0 +1,43 @@
+package com.betha.projeto_manutencao.service.impl;
+
+import java.util.Calendar;
+
+import javax.persistence.NoResultException;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.Spy;
+import org.mockito.runners.MockitoJUnitRunner;
+
+import com.betha.projeto_manutencao.model.dto.PedidoResponseDTO;
+import com.betha.projeto_manutencao.persistence.dao.PedidoDao;
+
+@RunWith(MockitoJUnitRunner.class)
+public class PedidoServiceImplTest extends PedidoServiceImpl {
+
+	
+	private static final String ENTRADA = "Entrada";
+	private static final String AGUARDANDO_CONFIRMACAO = "Aguardando confirmação";
+	@Mock
+	private PedidoDao dao;
+	@Spy
+	@InjectMocks
+	private PedidoServiceImplTest service;
+	private PedidoResponseDTO registro;
+
+	@Before
+	public void setUp() {
+		registro = new PedidoResponseDTO("xyz", "www", "Descricao", 1, Calendar.getInstance(), "hash", ENTRADA);
+	}
+	
+	@Test
+	public void deveCriarNovoPedido() throws Exception {
+		service.create(registro);
+		Mockito.verify(dao).findByName(registro.getNome());
+	}
+	
+}

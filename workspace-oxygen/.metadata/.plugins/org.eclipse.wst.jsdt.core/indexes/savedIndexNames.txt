@@ -1,0 +1,10 @@
+INDEX VERSION 1.4+/Betha/workspace-oxygen/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
+3061734421.index
+1830805260.index
+1867834026.index
+3819079372.index
+421678036.index
+2819400469.index
+3390427119.index
+2245731506.index
+1151202617.index

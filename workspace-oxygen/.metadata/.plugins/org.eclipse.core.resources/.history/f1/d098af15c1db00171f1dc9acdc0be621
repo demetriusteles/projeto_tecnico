@@ -1,0 +1,33 @@
+package com.betha.projeto_manutencao;
+
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.SQLException;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.diuno.portal_contribuinte.dao.TokenDao;
+
+
+
+public class AppController extends HttpServlet {
+
+	private static final long serialVersionUID = 1026655088756351404L;
+	
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		try {
+			TokenDao tokenDao = new TokenDao((Connection) request.getAttribute("dbConnection"));
+			final String token = tokenDao.getToken("sigamweb");
+			final String uri = request.getRequestURI() + token;
+			response.sendRedirect(uri);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new ServletException(e.getMessage(), e);
+		}
+	}
+
+}

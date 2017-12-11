@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<list key="EGit.KnownHosts">
+		<item value="bitbucket.org"/>
+		<item value="git.eclipse.org"/>
+		<item value="github.com"/>
+	</list>
+	<list key="RepositorySelectionPage.UsedUris">
+		<item value="https://github.com/demetriusteles/projeto_tecnico"/>
+	</list>
+	<section name="GitCommitMessageComponent">
+		<list key="/Betha/workspace-oxygen/betha_project/.git">
+			<item value="false"/>
+			<item value="demetriusteles &lt;luisdemetrius@gmail.com&gt;"/>
+			<item value="Conexão jdbc"/>
+			<item value="demetriusteles &lt;luisdemetrius@gmail.com&gt;"/>
+			<item value="0000000000000000000000000000000000000000"/>
+		</list>
+	</section>
+	<section name="GitCreatePatchWizard">
+		<item value="3" key="GitCreatePatchWizard.OptionsPage.contextLines"/>
+		<item value="filesystem" key="GitCreatePatchWizard.LocationPage.location"/>
+		<item value="NONE" key="GitCreatePatchWizard.OptionsPage.format"/>
+	</section>
+	<section name="org.eclipse.egit.ui.internal.staging.StagingView">
+		<item value="500,500" key="STAGING_SASH_FORM_WEIGHT"/>
+		<item value="false" key="sortItemState"/>
+		<item value="500,500" key="HORIZONTAL_SASH_FORM_WEIGHT"/>
+	</section>
+</section>

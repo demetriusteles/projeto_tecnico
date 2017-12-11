@@ -1,0 +1,76 @@
+package com.betha.projeto_manutencao.persistence.dao.jpa;
+
+import java.util.Calendar;
+import java.util.List;
+
+import javax.inject.Inject;
+import javax.persistence.EntityManager;
+
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+
+import com.betha.projeto_manutencao.it.JpaBasedDBTestCase;
+import com.betha.projeto_manutencao.it.WeldJUnit4Runner;
+import com.betha.projeto_manutencao.model.entity.Usuarios;
+import com.betha.projeto_manutencao.persistence.dao.UsuarioDao;
+
+@RunWith(WeldJUnit4Runner.class)
+public class UsuarioDaoJpaIT extends JpaBasedDBTestCase {
+	@Inject
+	private UsuarioDao daoUsuario;
+
+	@Override
+	protected String getDataSetPath() {
+		return "/dataset/Usuario.xml";
+	}
+
+	@Override
+	protected EntityManager getEntityManager() {
+		return daoUsuario.getEntityManager();
+	}
+
+	@Before
+	public void setUp() throws Exception {
+		super.setUp();
+	}
+
+	@Test
+	public void deveBuscarUsuarios() {
+		List<Usuarios> usuarios = daoUsuario.find("");
+		Assert.assertNotNull(usuarios);
+		Assert.assertEquals(2, usuarios.size());
+	}
+
+	@Test
+	public void deveBuscarUsuariosComTermoNulo() {
+		List<Usuarios> usuarios = daoUsuario.find(null);
+		Assert.assertNotNull(usuarios);
+		Assert.assertEquals(2, usuarios.size());
+	}
+
+	@Test
+	public void deveBuscarUsuarioPorId() {
+		Integer id = 10;
+		Usuarios usuario = daoUsuario.findById(id);
+		Assert.assertNotNull(usuario);
+		Assert.assertEquals(id, usuario.getId());
+	}
+	
+	@Test
+	public void deveBuscarUsuarioPorNome() {
+		String name = "fred fred";
+		Usuarios usuario = daoUsuario.findByName(name);
+		Assert.assertNotNull(usuario);
+		Assert.assertEquals(name, usuario.getNome());
+	}
+	@Test
+	public void deveBuscarUsuarioPorUsuario() {
+		String name = "manoel";
+		Usuarios usuario = daoUsuario.findByUsuario(name);
+		Assert.assertNotNull(usuario);
+		Assert.assertEquals(usuario, usuario.getUsuario());
+	}
+	
+}

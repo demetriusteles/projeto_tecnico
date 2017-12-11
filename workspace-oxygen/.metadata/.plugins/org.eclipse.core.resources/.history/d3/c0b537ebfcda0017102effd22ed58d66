@@ -1,0 +1,74 @@
+package com.betha.projeto_manutencao.persistence.dao.jpa;
+
+import javax.inject.Inject;
+import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
+
+import com.betha.projeto_manutencao.model.entity.Usuarios;
+import com.betha.projeto_manutencao.persistence.config.DataSourceQualifier;
+import com.betha.projeto_manutencao.persistence.dao.UsuarioDao;
+import com.betha.projeto_manutencao.persistence.dao.jpa.AbstractCrudDaoJpa;
+
+public class MaquinaDaoJpa extends AbstractCrudDaoJpa<Usuarios> implements UsuarioDao {
+
+	@Inject
+	@DataSourceQualifier
+	private EntityManager entityManager;
+
+	@Override
+	public EntityManager getEntityManager() {
+		return entityManager;
+	}
+
+	@Override
+	public Class<Usuarios> getModelClass() {
+		return Usuarios.class;
+	}
+
+	@Override
+	public Usuarios findById(Integer id) {
+		String sql = "SELECT u FROM usuarios u WHERE (u.id = :id)";
+
+		final TypedQuery<Usuarios> query = getEntityManager().createQuery(sql, Usuarios.class);
+		query.setParameter("id", id);
+		return query.getSingleResult();
+	}
+
+	@Override
+	public Usuarios findByName(String name) {
+		String sql = "SELECT u FROM usuarios u" + " WHERE (u.name = :name)";
+
+		final TypedQuery<Usuarios> query = getEntityManager().createQuery(sql, Usuarios.class);
+		query.setParameter("name", name);
+		return query.getSingleResult();
+	}
+
+	@Override
+	public Usuarios findByToken(final String nomeUsuario, final String token) {
+		String sql = "SELECT u FROM usuario u WHERE u.usuario = :usuario AND u.token = :token";
+
+		final TypedQuery<Usuarios> query = getEntityManager().createQuery(sql, Usuarios.class);
+		query.setParameter("usuario", nomeUsuario);
+		query.setParameter("token", token);
+		return query.getSingleResult();
+	}
+	
+	@Override
+	public Usuarios findByUsuario(String usuario) {
+		String sql = "SELECT u FROM usuario u WHERE u.usuario = :usuario";
+
+		final TypedQuery<Usuarios> query = getEntityManager().createQuery(sql, Usuarios.class);
+		query.setParameter("usuario", usuario);
+		return query.getSingleResult();
+	}
+
+	@Override
+	public Usuarios findBySetor(String setor) {
+		String sql = "SELECT u FROM usuario u WHERE u.setor = :setor";
+
+		final TypedQuery<Usuarios> query = getEntityManager().createQuery(sql, Usuarios.class);
+		query.setParameter("setor", setor);
+		return query.getSingleResult();
+	}
+
+}

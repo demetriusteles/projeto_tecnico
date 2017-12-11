@@ -1,0 +1,140 @@
+package com.betha.projeto_manutencao.model.entity;
+
+import java.util.Calendar;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+/**
+ * @author <a href="mailto:luisdemetrius@gmail.com.br">Luis Demetrius Teles</a>
+ */
+
+@Entity(name = "usuarios")
+@Table(name = "usuarios")
+@SequenceGenerator(name = "sequenceUsuario", sequenceName = "seq_usuarios", allocationSize = 1)
+public class Usuarios implements BaseModel {
+
+	@Id
+	@Column(name = "id")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceAdmUsuario")
+	private Integer codigo;
+
+	@Column(name = "usuario", nullable = false)
+	private String usuario;
+
+	@Column(name = "senha", nullable = false)
+	private String senha;
+
+	@ManyToOne(cascade = CascadeType.PERSIST)
+	@JoinColumn(name = "cod_pessoa", nullable = false)
+	private Pessoa pessoa;
+
+	@Column(name = "ind_bloqueado")
+	private Character indicadorBloqueado;
+	
+	@OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL)
+	private Login login;
+	
+	@Column(name = "dt_alteracao_senha", nullable = false)
+	private Calendar dtAlteracaoSenha;
+	
+	public Usuario() {
+		this.dtAlteracaoSenha = Calendar.getInstance();
+	}
+	
+	public Integer getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(Integer codigo) {
+		this.codigo = codigo;
+	}
+
+	public String getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
+	}
+
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+
+	public Pessoa getPessoa() {
+		return pessoa;
+	}
+
+	public void setPessoa(Pessoa pessoa) {
+		this.pessoa = pessoa;
+	}
+
+	public Character getIndicadorBloqueado() {
+		return indicadorBloqueado;
+	}
+
+	public void setIndicadorBloqueado(Character indicadorBloqueado) {
+		this.indicadorBloqueado = indicadorBloqueado;
+	}
+	
+	public Login getLogin() {
+		return login;
+	}
+
+	public void setLogin(Login login) {
+		this.login = login;
+	}
+
+	public Calendar getDtAlteracaoSenha() {
+		return dtAlteracaoSenha;
+	}
+
+	public void setDtAlteracaoSenha(Calendar dtAlteracaoSenha) {
+		this.dtAlteracaoSenha = dtAlteracaoSenha;
+	}
+
+	@Override
+	public String toString() {
+		return "UsuarioPortal [codigo=" + codigo + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((codigo == null) ? 0 : codigo.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Usuario other = (Usuario) obj;
+		if (codigo == null) {
+			if (other.codigo != null)
+				return false;
+		} else if (!codigo.equals(other.codigo))
+			return false;
+		return true;
+	}
+
+}

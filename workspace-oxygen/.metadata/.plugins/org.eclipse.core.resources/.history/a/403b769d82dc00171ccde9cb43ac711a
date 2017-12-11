@@ -1,0 +1,92 @@
+package com.betha.projeto_manutencao.service.impl;
+
+import java.util.List;
+import java.util.logging.Logger;
+import java.util.stream.Collectors;
+
+import javax.ejb.Stateless;
+import javax.inject.Inject;
+import javax.persistence.NoResultException;
+
+import com.betha.projeto_manutencao.model.dto.PedidoResponseDTO;
+import com.betha.projeto_manutencao.model.entity.Clientes;
+import com.betha.projeto_manutencao.model.entity.Pedidos;
+import com.betha.projeto_manutencao.persistence.dao.CrudDao;
+import com.betha.projeto_manutencao.persistence.dao.PedidoDao;
+import com.betha.projeto_manutencao.service.PedidoService;
+
+@Stateless
+public class PedidoServiceImpl implements PedidoService {
+	private static final Logger logger = Logger.getLogger(PedidoServiceImpl.class.getName());
+
+	@Inject
+	private PedidoDao dao;
+
+	@Inject
+	private CrudDao<Clientes> daoCliente;
+
+	@Override
+	public String create(PedidoResponseDTO dto) throws Exception {
+		Pedidos maquina = criaOrdem(dto);
+		dao.create(maquina);
+		return "OK";
+	}
+
+	Pedidos criaOrdem(final PedidoResponseDTO dto) {
+		final Pedidos maq = new Pedidos();
+		maq.setMarca(dto.getMarca());
+		maq.setTipoMaquina(dto.getTipoMaquina());
+		maq.setProblema(dto.getProblema());
+		maq.setIdCliente(daoCliente.findById(dto.getIdCliente()));
+		maq.setDtEntrada(dto.getDtEntrada());
+		maq.setStatus("");
+		maq.setFoto(dto.getFoto());
+		return maq;
+	}
+
+	@Override
+	public PedidoResponseDTO findById(Integer id) throws Exception{
+		try {
+			Pedidos pedido = dao.findById(id);
+			return new PedidoResponseDTO(pedido.getTipoMaquina(), pedido.getMarca(), pedido.getProblema(),
+					pedido.getIdCliente().getId(), pedido.getDtEntrada(), pedido.getFoto(), pedido.getStatus());
+		} catch (NoResultException e) {
+			logger.severe(e.getMessage());
+			throw new Exception(id + " não encontrado");
+		}
+	}
+
+	@Override
+	public List<PedidoResponseDTO> getPedidos(String marca) {
+		List<Pedidos> list = dao.find(marca);
+		return list.stream()
+				.map(pedido -> new PedidoResponseDTO(pedido.getTipoMaquina(), pedido.getMarca(), pedido.getProblema(),
+						pedido.getIdCliente().getId(), pedido.getDtEntrada(), pedido.getFoto(), pedido.getStatus()))
+				.collect(Collectors.toList());
+	}
+
+	@Override
+	public List<PedidoResponseDTO> findByStatus(String status) {
+		List<Pedidos> maquina = dao.findByStatus(status);
+		return maquina.stream()
+				.map(maq -> new PedidoResponseDTO(maq.getTipoMaquina(), maq.getMarca(), maq.getProblema(),
+						maq.getIdCliente().getId(), maq.getDtEntrada(), maq.getFoto(), maq.getStatus()))
+				.collect(Collectors.toList());
+	}
+
+	@Override
+	public List<PedidoResponseDTO> findByClientes(String nome) {
+		List<Pedidos> maquina = dao.findByClientes(nome);
+		return maquina.stream()
+				.map(maq -> new PedidoResponseDTO(maq.getTipoMaquina(), maq.getMarca(), maq.getProblema(),
+						maq.getIdCliente().getId(), maq.getDtEntrada(), maq.getFoto(), maq.getStatus()))
+				.collect(Collectors.toList());
+	}
+
+	@Override
+	public List<PedidoResponseDTO> pegaOrdem(Integer id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

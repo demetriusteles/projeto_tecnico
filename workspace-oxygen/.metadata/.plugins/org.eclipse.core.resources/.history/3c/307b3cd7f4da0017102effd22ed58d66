@@ -1,0 +1,132 @@
+package com.betha.projeto_manutencao.service.impl;
+
+import java.util.Base64;
+
+import javax.persistence.NoResultException;
+import javax.security.auth.login.AccountException;
+
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.Spy;
+import org.mockito.runners.MockitoJUnitRunner;
+
+import com.betha.projeto_manutencao.model.dto.UsuarioResponseDTO;
+import com.betha.projeto_manutencao.persistence.dao.UsuarioDao;
+
+
+@RunWith(MockitoJUnitRunner.class)
+public class AccountServiceImplTest extends AccountServiceImpl {
+	@Mock
+	private UsuarioDao usuarioDao;
+	@Spy
+	@InjectMocks
+	private AccountServiceImplTest service;
+	private UsuarioResponseDTO usuarioRegistro;
+
+	@Before
+	public void setUp() {
+		String displayName = "Jonelson";
+		usuarioRegistro = new UsuarioResponseDTO(12, "Jonelson", "jonelson", "Cadastro", "senha", "token");
+	}
+
+	@Test
+	public void deveValidarLoginDeUsuario() throws AccountException {
+		String cpf = "12345678910";
+		String nomeUsuario = "jonelson";
+		String authorization = Base64.getEncoder().encodeToString((cpf + ":rosca").getBytes());
+
+		Usuario usuario = new Usuario();
+		usuario.setUsuario(nomeUsuario);
+		usuario.setPessoa(pessoa);
+		usuario.setIndicadorBloqueado('N');
+
+		Login login = new Login();
+		login.setUsuario(usuario);
+		login.setEmail("jonelson@email.com");
+		login.setSenha(HashUtils.hashPassword(nomeUsuario, "rosca"));
+		
+		usuario.setLogin(login);
+		Mockito.when(usuarioDao.findByCpf(cpf)).thenReturn(usuario);
+		
+		LoginResponseDTO loginResponseDTO = service.login(authorization);
+		Assert.assertNotNull(loginResponseDTO.getToken());
+		Assert.assertNotNull(loginResponseDTO.getDtLogin());
+		Mockito.verify(usuarioDao).findByCpf(cpf);
+	}
+	
+	@Test(expected = AccountException.class)
+	public void paraLoginComUsuarioSemLoginDeveDarErro() throws AccountException {
+		String cpf = "12345678910";
+		String nomeUsuario = "jonelson";
+		String authorization = Base64.getEncoder().encodeToString((cpf + ":rosca").getBytes());
+
+		Usuario usuario = new Usuario();
+		usuario.setUsuario(nomeUsuario);
+		usuario.setPessoa(pessoa);
+		usuario.setIndicadorBloqueado('N');
+
+		Mockito.when(usuarioDao.findByCpf(cpf)).thenReturn(usuario);
+		
+		service.login(authorization);
+	}
+	
+	@Test
+	public void deveCriarNovoUsuario() throws AccountException {
+		Mockito.when(usuarioDao.findByName(usuarioRegistro.getUsuario())).thenThrow(new NoResultException());
+		service.create(usuarioRegistro);
+		Mockito.verify(service).geraHashSenha(usuarioRegistro.getUsuario(), "rosca");
+	}
+	
+	@Test
+	public void paraCriacaoDeNovoUsuarioDeveVerificarSeAPessoaJaExiste() throws AccountException {
+		Mockito.when(usuarioDao.findByName(usuarioRegistro.getUsuario())).thenThrow(new NoResultException());
+		service.create(usuarioRegistro);
+		Mockito.verify(service).resolvePessoa(usuarioRegistro);
+		Mockito.verify(usuarioDao).findByName(usuarioRegistro.getUsuario());
+	}
+	
+	@Test
+	public void paraCriacaoDeNovoUsuarioComPessoaJaExisteDeveUsarPessoaExistente() throws AccountException {
+		Mockito.when(usuarioDao.findByName(usuarioRegistro.getUsuario())).thenThrow(new NoResultException());
+		
+		service.create(usuarioRegistro);
+		Mockito.verify(service).resolvePessoa(usuarioRegistro);
+
+		Pessoa pessoa = service.resolvePessoa(usuarioRegistro);
+		Assert.assertNotNull(pessoa);
+		Mockito.verify(service, Mockito.times(2)).buscaPessoa(usuarioRegistro.getCpf());
+		Mockito.verify(usuarioDao).findByName(usuarioRegistro.getUsuario());
+	}
+	
+	@Test
+	public void paraCriacaoDeNovoUsuarioComPessoaInexisteDeveCriarPessoa() throws AccountException {
+		Mockito.when(usuarioDao.findByName(usuarioRegistro.getUsuario())).thenThrow(new NoResultException());
+		service.create(usuarioRegistro);
+		Mockito.verify(service).resolvePessoa(usuarioRegistro);
+
+		Pessoa pessoa = service.resolvePessoa(usuarioRegistro);
+		Assert.assertNotNull(pessoa);
+		Mockito.verify(service, Mockito.times(2)).criaPessoa(usuarioRegistro);
+		Mockito.verify(usuarioDao).findByName(usuarioRegistro.getUsuario());
+	}
+	
+	@Test
+	public void paraCriacaoDeUsuarioJaExistenteDeveUsarUsuarioExistente() throws AccountException {
+		Mockito.when(usuarioDao.findByName(usuarioRegistro.getUsuario())).thenReturn(new Usuario());
+		service.create(usuarioRegistro);
+		Mockito.verify(service).resolveUsuario(usuarioRegistro, pessoa);
+	}
+
+	@Test(expected = AccountException.class)
+	public void paraCriacaoDeUsuarioComLoginJaExistenteDeveDarErro() throws AccountException {
+		Usuario usuario = new Usuario();
+		usuario.setLogin(new Login());
+		Mockito.when(usuarioDao.findByName(usuarioRegistro.getUsuario())).thenReturn(usuario);
+		service.create(usuarioRegistro);
+	}
+}

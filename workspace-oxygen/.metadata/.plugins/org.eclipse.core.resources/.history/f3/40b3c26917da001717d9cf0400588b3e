@@ -1,0 +1,28 @@
+package com.betha.projeto_manutencao.service.impl;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+import javax.ejb.Stateless;
+import javax.inject.Inject;
+
+import com.diuno.portal_contribuinte.model.dto.ProcessoDTO;
+import com.diuno.portal_contribuinte.model.entity.Processo;
+import com.diuno.portal_contribuinte.persistence.dao.CrudDao;
+import com.diuno.portal_contribuinte.persistence.dao.ProcessoDao;
+import com.diuno.portal_contribuinte.service.ProcessoService;
+
+@Stateless
+public class ProcessoServiceImpl implements ProcessoService {
+	@Inject
+	private CrudDao<Processo> dao;
+//	private ProcessoDao dao;
+
+	public List<ProcessoDTO> getProcessos(final String termo) {
+		List<Processo> processoList = dao.find(termo);
+		return processoList.stream()
+			.map(processo -> new ProcessoDTO(processo.getCodigo(), processo.getNome(), processo.getDescricao()))
+			.collect(Collectors.toList());
+	}
+
+}

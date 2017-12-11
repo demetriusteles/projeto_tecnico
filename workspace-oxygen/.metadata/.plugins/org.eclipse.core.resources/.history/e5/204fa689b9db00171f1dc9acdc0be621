@@ -1,0 +1,4 @@
+<dataset>
+	<usuarios id="10" nome="fred fred" usuario="fred" setor="cadastro" senha="123456" token="2017-09-12 00:00:00"/>
+	<usuarios id="12" nome="manoel manoel" usuario="manoel" setor="manutencao" senha="123456" token="2017-09-12 00:00:00"/>
+</dataset>

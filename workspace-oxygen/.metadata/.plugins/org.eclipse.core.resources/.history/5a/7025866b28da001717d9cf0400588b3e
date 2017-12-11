@@ -1,0 +1,12 @@
+package com.betha.projeto_manutencao.persistence.dao;
+
+import com.betha.projeto_manutencao.model.entity.Clientes;
+import com.betha.projeto_manutencao.model.entity.Usuarios;
+
+public interface ClienteDao extends CrudDao<Clientes> {
+
+	Usuarios findById(Integer id);
+
+	Usuarios findByName(String name);
+
+}

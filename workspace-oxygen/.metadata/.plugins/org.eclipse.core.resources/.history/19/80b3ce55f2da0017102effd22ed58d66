@@ -1,0 +1,9 @@
+<dataset>
+	<usuarios id="10" nome="fred" senha="123" cod_pessoa="10" ind_bloqueado="N" dt_alteracao_senha="2017-09-12 00:00:00"/>
+	<usuarios id="12" nome="manoel" senha="123" cod_pessoa="12" ind_bloqueado="N" dt_alteracao_senha="2017-09-12 00:00:00"/>
+</dataset>
+  nome character varying(100),
+  usuario character varying(100),
+  setor character varying(100),
+  senha character varying(30),
+  token character varying(200),

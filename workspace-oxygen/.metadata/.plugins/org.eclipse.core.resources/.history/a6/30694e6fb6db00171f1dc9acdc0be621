@@ -1,0 +1,16 @@
+package com.betha.projeto_manutencao.persistence.dao;
+
+import java.util.List;
+
+import com.betha.projeto_manutencao.model.entity.Maquinas;
+import com.betha.projeto_manutencao.persistence.dao.CrudDao;
+
+public interface MaquinaDao extends CrudDao<Maquinas> {
+
+	Maquinas findById(Integer id);
+
+	List<Maquinas> findByStatus(String status);
+	
+	Maquinas findByClientes(String nome);
+	
+}

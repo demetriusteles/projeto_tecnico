@@ -1,0 +1,40 @@
+package com.betha.projeto_manutencao.service.impl;
+
+import javax.persistence.NoResultException;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.Spy;
+import org.mockito.runners.MockitoJUnitRunner;
+
+import com.betha.projeto_manutencao.model.dto.PedidoResponseDTO;
+import com.betha.projeto_manutencao.persistence.dao.PedidoDao;
+
+@RunWith(MockitoJUnitRunner.class)
+public class PedidoServiceImplTest extends PedidoServiceImpl {
+
+
+	@Mock
+	private PedidoDao dao;
+	@Spy
+	@InjectMocks
+	private PedidoServiceImplTest service;
+	private PedidoResponseDTO clienteRegistro;
+
+	@Before
+	public void setUp() {
+		clienteRegistro = new PedidoResponseDTO(tipoMaquina, marca, problema, idCliente, dtEntrada, foto, status)
+	}
+	
+	@Test
+	public void deveCriarNovoCliente() throws Exception {
+		Mockito.when(dao.findByName(clienteRegistro.getNome())).thenThrow(new NoResultException());
+		service.create(clienteRegistro);
+		Mockito.verify(dao).findByName(clienteRegistro.getNome());
+	}
+	
+}

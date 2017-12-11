@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="java.sql.DriverManager"/>
+<fullyQualifiedTypeName name="java.sql.SQLException"/>
+<fullyQualifiedTypeName name="java.sql.Connection"/>
+<fullyQualifiedTypeName name="br.com.betha_project.jdbc.ConnectionFactory"/>
+<fullyQualifiedTypeName name="com.betha.projeto_manutencao.persistence.config.DataSourceQualifier"/>
+<fullyQualifiedTypeName name="com.betha.projeto_manutencao.persistence.dao.jpa.UsuarioDao"/>
+<fullyQualifiedTypeName name="com.betha.projeto_manutencao.service.ClienteService"/>
+<fullyQualifiedTypeName name="com.betha.projeto_manutencao.model.entity.Clientes"/>
+<fullyQualifiedTypeName name="com.betha.projeto_manutencao.model.dto.ClienteResponseDTO"/>
+<fullyQualifiedTypeName name="com.betha.projeto_manutencao.persistence.dao.CrudDao"/>
+<fullyQualifiedTypeName name="com.betha.projeto_manutencao.persistence.dao.UsuarioDao"/>
+<fullyQualifiedTypeName name="com.betha.projeto_manutencao.model.entity.Usuarios"/>
+<fullyQualifiedTypeName name="javax.persistence.OneToMany"/>
+<fullyQualifiedTypeName name="com.betha.projeto_manutencao.persistence.dao.MaquinaDao"/>
+<fullyQualifiedTypeName name="java.lang.Integer"/>
+<fullyQualifiedTypeName name="com.betha.projeto_manutencao.model.entity.Maquinas"/>
+<fullyQualifiedTypeName name="com.betha.projeto_manutencao.model.dto.MaquinaResponseDTO"/>
+<fullyQualifiedTypeName name="com.betha.projeto_manutencao.persistence.dao.ClienteDao"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="javax.security.auth.login.AccountException"/>
+<fullyQualifiedTypeName name="com.betha.projeto_manutencao.model.dto.UsuarioResponseDTO"/>
+<fullyQualifiedTypeName name="com.betha.projeto_manutencao.service.AccountService"/>
+<fullyQualifiedTypeName name="com.betha.projeto_manutencao.model.ApiResponse"/>
+<fullyQualifiedTypeName name="com.betha.projeto_manutencao.service.MaquinaService"/>
+<fullyQualifiedTypeName name="com.betha.projeto_manutencao.security.JavaMailApp"/>
+<fullyQualifiedTypeName name="com.betha.projeto_manutencao.model.entity.Config"/>
+<fullyQualifiedTypeName name="javax.xml.bind.DatatypeConverter"/>
+<fullyQualifiedTypeName name="java.net.URLEncoder"/>
+<fullyQualifiedTypeName name="java.net.URLDecoder"/>
+<fullyQualifiedTypeName name="java.lang.Exception"/>
+<fullyQualifiedTypeName name="com.betha.projeto_manutencao.model.dto.PedidoResponseDTO"/>
+<fullyQualifiedTypeName name="java.util.Calendar"/>
+</qualifiedTypeNameHistroy>

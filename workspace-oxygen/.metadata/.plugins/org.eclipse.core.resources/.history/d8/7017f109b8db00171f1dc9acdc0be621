@@ -1,0 +1,93 @@
+package com.betha.projeto_manutencao.service.impl;
+
+import java.util.List;
+import java.util.logging.Logger;
+import java.util.stream.Collectors;
+
+import javax.ejb.Stateless;
+import javax.inject.Inject;
+import javax.persistence.NoResultException;
+import javax.security.auth.login.AccountException;
+
+import com.betha.projeto_manutencao.model.dto.MaquinaResponseDTO;
+import com.betha.projeto_manutencao.model.entity.Clientes;
+import com.betha.projeto_manutencao.model.entity.Maquinas;
+import com.betha.projeto_manutencao.persistence.dao.CrudDao;
+import com.betha.projeto_manutencao.persistence.dao.MaquinaDao;
+import com.betha.projeto_manutencao.service.MaquinaService;
+
+@Stateless
+public class MaquinaServiceImpl implements MaquinaService {
+	private static final Logger logger = Logger.getLogger(MaquinaServiceImpl.class.getName());
+
+	@Inject
+	private MaquinaDao dao;
+
+	@Inject
+	private CrudDao<Clientes> daoCliente;
+
+	@Override
+	public String create(MaquinaResponseDTO dto) throws AccountException {
+		Maquinas maquina = criaOrdem(dto);
+		dao.create(maquina);
+		return "OK";
+	}
+
+	Maquinas criaOrdem(final MaquinaResponseDTO dto) {
+		final Maquinas maq = new Maquinas();
+		maq.setId(dto.getId());
+		maq.setMarca(dto.getMarca());
+		maq.setTipoMaquina(dto.getTipoMaquina());
+		maq.setProblema(dto.getProblema());
+		maq.setIdCliente(daoCliente.findById(dto.getIdCliente()));
+		maq.setDtEntrada(dto.getDtEntrada());
+		maq.setStatus("");
+		maq.setFoto(dto.getFoto());
+		return maq;
+	}
+
+	@Override
+	public MaquinaResponseDTO findById(Integer id){
+		try {
+			Maquinas maq = dao.findById(id);
+			return new MaquinaResponseDTO(maq.getId(), maq.getTipoMaquina(), maq.getMarca(), maq.getProblema(),
+					maq.getIdCliente().getId(), maq.getDtEntrada(), maq.getFoto(), maq.getStatus());
+		} catch (NoResultException e) {
+			logger.severe(e.getMessage());
+			throw new AccountException(id + " não encontrado");
+		}
+	}
+
+	@Override
+	public List<MaquinaResponseDTO> getMaquinas(String marca) {
+		try {
+		List<Maquinas> maquina = dao.find(marca);
+		return maquina.stream()
+				.map(maq -> new MaquinaResponseDTO(maq.getId(), maq.getTipoMaquina(), maq.getMarca(), maq.getProblema(),
+						maq.getIdCliente().getId(), maq.getDtEntrada(), maq.getFoto(), maq.getStatus()))
+				.collect(Collectors.toList());
+		} catch (NoResultException e) {
+			logger.severe(e.getMessage());
+			throw new AccountException(marca + " não encontrado");
+		}
+	}
+
+	@Override
+	public List<MaquinaResponseDTO> findByStatus(String status) {
+		List<Maquinas> maquina = dao.findByStatus(status);
+		return maquina.stream()
+				.map(maq -> new MaquinaResponseDTO(maq.getId(), maq.getTipoMaquina(), maq.getMarca(), maq.getProblema(),
+						maq.getIdCliente().getId(), maq.getDtEntrada(), maq.getFoto(), maq.getStatus()))
+				.collect(Collectors.toList());
+	}
+
+	@Override
+	public List<MaquinaResponseDTO> findByClientes(String nome) {
+		List<Maquinas> maquina = dao.findByClientes(nome);
+		return maquina.stream()
+				.map(maq -> new MaquinaResponseDTO(maq.getId(), maq.getTipoMaquina(), maq.getMarca(), maq.getProblema(),
+						maq.getIdCliente().getId(), maq.getDtEntrada(), maq.getFoto(), maq.getStatus()))
+				.collect(Collectors.toList());
+	}
+
+}

@@ -1,0 +1,56 @@
+package com.betha.projeto_manutencao.api.rs;
+
+import java.util.logging.Logger;
+
+import javax.annotation.security.PermitAll;
+import javax.inject.Inject;
+import javax.security.auth.login.AccountException;
+import javax.validation.constraints.NotNull;
+import javax.ws.rs.GET;
+import javax.ws.rs.HeaderParam;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+
+import com.betha.projeto_manutencao.model.ApiResponse;
+import com.betha.projeto_manutencao.model.dto.UsuarioResponseDTO;
+import com.betha.projeto_manutencao.service.AccountService;
+
+
+@Path("/usuario")
+public class UsuarioRestService {
+	private static final Logger logger = Logger.getLogger(UsuarioRestService.class.getName());
+	
+	@Inject
+	private AccountService service;
+
+	@GET
+    @Path("/usuario")
+    @PermitAll
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response login(@HeaderParam("Authorization")
+                          @NotNull(message = ":(")
+                          final String authorization) throws AccountException {
+        logger.info("Start login");
+        
+        Response.Status status = Response.Status.OK;
+        return Response.status(status)
+        		.entity(new ApiResponse<>(status.getStatusCode(), status.toString(), service.login(authorization)))
+        		.type(MediaType.APPLICATION_JSON)
+        		.build();
+    }
+	
+	@POST
+	@Path("/")
+    @PermitAll
+    @Produces(MediaType.APPLICATION_JSON)
+	public Response create(final UsuarioResponseDTO usuario) throws AccountException {
+        Response.Status status = Response.Status.OK;
+        return Response.status(status)
+        		.entity(new ApiResponse<>(status.getStatusCode(), status.toString(), service.create(usuario)))
+        		.type(MediaType.APPLICATION_JSON)
+        		.build();
+	}
+}

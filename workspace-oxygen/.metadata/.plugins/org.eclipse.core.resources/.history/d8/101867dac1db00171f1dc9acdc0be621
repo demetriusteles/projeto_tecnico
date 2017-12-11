@@ -1,0 +1,46 @@
+package com.betha.projeto_manutencao.api;
+
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.annotation.PostConstruct;
+import javax.inject.Inject;
+import javax.ws.rs.ApplicationPath;
+import javax.ws.rs.core.Application;
+
+import com.diuno.portal_contribuinte.api.rs.AccountRestService;
+import com.diuno.portal_contribuinte.api.rs.ProcessoRestService;
+import com.diuno.portal_contribuinte.api.rs.ProtocoloRestService;
+ 
+
+@ApplicationPath("/v1")
+public class ApiV1RestServiceApplication extends Application {
+	
+	@Inject
+	private ProcessoRestService processoRestService;
+	@Inject
+	private AccountRestService accountRestService;
+	@Inject
+	private ProtocoloRestService protocoloRestService;
+	private Set<Object> singletons = new HashSet<Object>();
+	 
+	public ApiV1RestServiceApplication() {
+	}
+	
+	@PostConstruct
+	public void init() {
+		singletons.add(processoRestService);
+		singletons.add(accountRestService);
+		singletons.add(protocoloRestService);
+	}
+ 
+	@Override
+	public Set<Object> getSingletons() {
+		return singletons;
+	}
+
+	@Override
+	public Set<Class<?>> getClasses() {
+		return null;
+	}
+}

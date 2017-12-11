@@ -1,0 +1,57 @@
+package com.betha.projeto_manutencao.model.dto;
+
+import java.util.Calendar;
+
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+public class LoginResponseDTO {
+
+	private Integer codigo;
+	private String nome;
+	private String usuario;
+	private String setor;
+	private String senha;
+	private String token;
+	
+	public LoginResponseDTO(Integer codigo, String nome, String usuario, String setor, String senha, String token) {
+		super();
+		this.codigo = codigo;
+		this.nome = nome;
+		this.usuario = usuario;
+		this.token = token;
+		this.dtLogin = dtLogin;
+	}
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	public String getNome() {
+		return nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	public String getUsuario() {
+		return usuario;
+	}
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
+	}
+	public String getToken() {
+		return token;
+	}
+	public void setToken(String token) {
+		this.token = token;
+	}
+	public Calendar getDtLogin() {
+		return dtLogin;
+	}
+	public void setDtLogin(Calendar dtLogin) {
+		this.dtLogin = dtLogin;
+	}
+}

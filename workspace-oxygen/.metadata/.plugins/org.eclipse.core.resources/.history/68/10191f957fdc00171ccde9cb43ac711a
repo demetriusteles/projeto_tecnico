@@ -1,0 +1,18 @@
+package com.betha.projeto_manutencao.service;
+
+import java.util.List;
+
+import com.betha.projeto_manutencao.model.dto.MaquinaResponseDTO;
+
+public interface MaquinaService {
+
+	String create(MaquinaResponseDTO maquinasResponse) throws Exception;
+	
+	MaquinaResponseDTO findById(Integer id) throws Exception;
+	
+	List<MaquinaResponseDTO> findByStatus(String status);
+	
+	List<MaquinaResponseDTO> getMaquinas(String marca);
+	
+	List<MaquinaResponseDTO> findByClientes(String nome);
+}

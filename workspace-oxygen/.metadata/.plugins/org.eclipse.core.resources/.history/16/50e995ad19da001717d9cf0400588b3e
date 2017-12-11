@@ -1,0 +1,73 @@
+package com.betha.projeto_manutencao.model.dto;
+
+import java.util.Calendar;
+/**
+ * @author <a href="mailto:luis@diuno.com.br">Luis Demetrius Teles</a>
+ */
+public class UsuarioPortalDTO {
+
+	private Integer id;
+	private String name;
+	private String displayName;
+	private String token;
+	private Calendar loginDate;
+	private String role;
+	
+	public UsuarioPortalDTO(final Integer id, final String name, final String displayName, final String token, final Calendar loginDate) {
+		this.id = id;
+		this.name = name;
+		this.displayName = displayName;
+		this.token = token;
+		this.loginDate = loginDate;
+		this.role = "user";
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getDisplayName() {
+		return displayName;
+	}
+
+	public void setDisplayName(String displayName) {
+		this.displayName = displayName;
+	}
+
+	public String getToken() {
+		return token;
+	}
+
+	public void setToken(String token) {
+		this.token = token;
+	}
+
+	public Calendar getLoginDate() {
+		return loginDate;
+	}
+
+	public void setLoginDate(Calendar loginDate) {
+		this.loginDate = loginDate;
+	}
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+}
+

@@ -1,0 +1,44 @@
+package com.betha.projeto_manutencao.service.impl;
+
+import java.util.Base64;
+
+import javax.persistence.NoResultException;
+import javax.security.auth.login.AccountException;
+
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.Spy;
+import org.mockito.runners.MockitoJUnitRunner;
+
+import com.betha.projeto_manutencao.model.dto.UsuarioResponseDTO;
+import com.betha.projeto_manutencao.persistence.dao.UsuarioDao;
+
+
+@RunWith(MockitoJUnitRunner.class)
+public class ClienteServiceImplTest extends AccountServiceImpl {
+	@Mock
+	private UsuarioDao dao;
+	@Spy
+	@InjectMocks
+	private ClienteServiceImplTest service;
+	private UsuarioResponseDTO usuarioRegistro;
+
+	@Before
+	public void setUp() {
+		String displayName = "Jonelson";
+		usuarioRegistro = new UsuarioResponseDTO(12, "Jonelson", "jonelson", "Cadastro", "senha", "token");
+	}
+	
+	@Test
+	public void deveCriarNovoUsuario() throws AccountException {
+		Mockito.when(dao.findByName(usuarioRegistro.getUsuario())).thenThrow(new NoResultException());
+		service.create(usuarioRegistro);
+		Mockito.verify(service).geraHashSenha(usuarioRegistro.getUsuario(), "rosca");
+	}
+	
+}

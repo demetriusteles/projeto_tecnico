@@ -1,0 +1,55 @@
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+import { RouterModule, Routes } from '@angular/router';
+
+import { AppComponent } from './app.component';
+import { PainelDeLoginComponent } from './painel-de-login/painel-de-login.component';
+import { TestComponent } from './painel-de-login/test/test.component';
+
+
+const routes: Routes = [
+    // { path: 'atendimento', loadChildren: 'app/atendimento/atendimento.module#AtendimentoModule'},
+    { path: '', redirectTo: '/servico', pathMatch: 'full' },
+    { path: 'login', component: PainelDeLoginComponent },
+//    { path: 'registro', component: RegistroComponent },
+//    { path: ':token', component: AppSecurityComponent },
+//    { path: 'trb', loadChildren: 'app/modulos/tributario/tributario.module#TributarioModule' },
+//    { path: '**', component: NotFoundComponent },
+];
+
+//@NgModule({
+//  declarations: [
+//    AppComponent,
+//    PainelDeLoginComponent,
+//    TestComponent
+//  ],
+//  imports: [
+//    BrowserModule,
+//    FormsModule,
+//    HttpModule
+//  ],
+//  providers: [],
+//  bootstrap: [AppComponent]
+//})
+
+@NgModule( {
+    imports: [
+        RouterModule.forRoot(
+           routes,
+        //    {
+        //     enableTracing: true,
+        //     preloadingStrategy: SelectivePreloadingStrategy,
+        //    }
+        ),
+    ],
+    exports: [
+        RouterModule,
+    ],
+    // providers: [
+    //     SelectivePreloadingStrategy,
+    // ]
+} )
+
+export class AppModule { }

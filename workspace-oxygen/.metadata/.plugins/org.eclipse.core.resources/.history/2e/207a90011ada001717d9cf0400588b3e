@@ -1,0 +1,13 @@
+package com.betha.projeto_manutencao.service;
+
+import javax.security.auth.login.AccountException;
+
+import com.diuno.portal_contribuinte.model.dto.LoginResponseDTO;
+import com.diuno.portal_contribuinte.model.dto.UsuarioPortalDTO;
+import com.diuno.portal_contribuinte.model.dto.UsuarioRegistroDTO;
+
+public interface AccountService {
+	LoginResponseDTO login(String authorization) throws AccountException;
+	UsuarioPortalDTO findByToken(String nomeUsuario, String token) throws AccountException;
+	String create(UsuarioRegistroDTO usuarioRegistro) throws AccountException;
+}

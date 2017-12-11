@@ -1,0 +1,16 @@
+package com.betha.projeto_manutencao.service;
+
+import java.util.List;
+
+import javax.security.auth.login.AccountException;
+
+import com.betha.projeto_manutencao.model.dto.ClienteResponseDTO;
+
+public interface ClienteService {
+
+	String create(ClienteResponseDTO clienteResponse) throws AccountException;
+	
+	ClienteResponseDTO findById(Integer id);
+	
+	List<ClienteResponseDTO> getClientes(String nome);
+}

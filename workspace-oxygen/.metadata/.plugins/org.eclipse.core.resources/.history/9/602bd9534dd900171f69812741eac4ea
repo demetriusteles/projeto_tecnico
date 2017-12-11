@@ -1,0 +1,20 @@
+package com.betha.projeto_manutencao.persistence.dao;
+
+import java.io.Serializable;
+import java.util.List;
+
+import javax.persistence.EntityManager;
+
+import com.diuno.portal_contribuinte.model.entity.BaseModel;
+
+
+public interface CrudDao<M extends BaseModel> {
+	EntityManager getEntityManager();
+	M findById(Serializable id);
+	M findById(Serializable id, Class<M> modelClass);
+	M create(M model);
+	M update(M model);
+	List<M> find(String term);
+	List<M> findBy(String fieldName, Object fieldVal, String term);
+	List<M> findBy(String fieldName, Object fieldVal, String term, Class<M> modelClass);
+}

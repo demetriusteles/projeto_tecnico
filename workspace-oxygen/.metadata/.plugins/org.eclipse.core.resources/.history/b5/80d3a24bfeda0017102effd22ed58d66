@@ -1,0 +1,52 @@
+package com.betha.projeto_manutencao.persistence.dao.jpa;
+
+import javax.inject.Inject;
+import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
+
+import com.betha.projeto_manutencao.model.entity.Maquinas;
+import com.betha.projeto_manutencao.persistence.config.DataSourceQualifier;
+import com.betha.projeto_manutencao.persistence.dao.MaquinaDao;
+import com.betha.projeto_manutencao.persistence.dao.jpa.AbstractCrudDaoJpa;
+
+public class MaquinaDaoJpa extends AbstractCrudDaoJpa<Maquinas> implements MaquinaDao {
+
+	@Inject
+	@DataSourceQualifier
+	private EntityManager entityManager;
+
+	@Override
+	public EntityManager getEntityManager() {
+		return entityManager;
+	}
+
+	@Override
+	public Class<Maquinas> getModelClass() {
+		return Maquinas.class;
+	}
+
+	@Override
+	public Maquinas findById(Integer id) {
+		String sql = "SELECT m FROM maquinas m WHERE (m.id = :id)";
+
+		final TypedQuery<Maquinas> query = getEntityManager().createQuery(sql, Maquinas.class);
+		query.setParameter("id", id);
+		return query.getSingleResult();
+	}
+
+	@Override
+	public Maquinas findByTipoMaquina(String tipoMaquina) {
+		String sql = "SELECT m FROM maquinas m  WHERE (u.tipoMaquina = :tipoMaquina)";
+
+		final TypedQuery<Maquinas> query = getEntityManager().createQuery(sql, Maquinas.class);
+		query.setParameter("tipoMaquina", tipoMaquina);
+		return query.getSingleResult();
+	}
+
+	@Override
+	public Maquinas findByClientes(String nome) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

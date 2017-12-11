@@ -1,0 +1,12 @@
+package com.betha.projeto_manutencao.service;
+
+import java.util.List;
+
+import com.betha.projeto_manutencao.model.dto.ClienteResponseDTO;
+
+public interface AccountService {
+
+	ClienteResponseDTO findById(String id);
+	
+	List<ClienteResponseDTO> getClientes(String nome);
+}

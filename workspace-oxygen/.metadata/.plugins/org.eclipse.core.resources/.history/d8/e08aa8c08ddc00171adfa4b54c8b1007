@@ -1,0 +1,15 @@
+package br.com.betha_project.jdbc;
+
+import javax.xml.bind.DatatypeConverter;
+
+public class Base64 {
+
+	public static void main(String[] args) {
+
+		String str = new String(DatatypeConverter.parseBase64Binary("user:123"));
+        String res = DatatypeConverter.printBase64Binary(str.getBytes());
+        System.out.println(res);
+		
+	}
+
+}

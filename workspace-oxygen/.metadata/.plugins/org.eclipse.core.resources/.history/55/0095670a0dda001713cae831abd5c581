@@ -1,0 +1,9 @@
+package com.betha.projeto_manutencao.model.entity;
+
+/**
+ * @author <a href="mailto:luisdemetrius@gmail.com.br">Luis Demetrius Teles</a>
+ */
+
+public interface BaseModel {
+
+}

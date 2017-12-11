@@ -1,0 +1,86 @@
+package com.betha.projeto_manutencao.service.impl;
+
+import java.util.List;
+import java.util.logging.Logger;
+import java.util.stream.Collectors;
+
+import javax.ejb.Stateless;
+import javax.inject.Inject;
+import javax.persistence.NoResultException;
+
+import com.betha.projeto_manutencao.model.dto.PedidoResponseDTO;
+import com.betha.projeto_manutencao.model.entity.Clientes;
+import com.betha.projeto_manutencao.model.entity.Pedidos;
+import com.betha.projeto_manutencao.persistence.dao.CrudDao;
+import com.betha.projeto_manutencao.persistence.dao.MaquinaDao;
+import com.betha.projeto_manutencao.service.PedidoService;
+
+@Stateless
+public class MaquinaServiceImpl implements PedidoService {
+	private static final Logger logger = Logger.getLogger(MaquinaServiceImpl.class.getName());
+
+	@Inject
+	private MaquinaDao dao;
+
+	@Inject
+	private CrudDao<Clientes> daoCliente;
+
+	@Override
+	public String create(PedidoResponseDTO dto) throws Exception {
+		Pedidos maquina = criaOrdem(dto);
+		dao.create(maquina);
+		return "OK";
+	}
+
+	Pedidos criaOrdem(final PedidoResponseDTO dto) {
+		final Pedidos maq = new Pedidos();
+		maq.setMarca(dto.getMarca());
+		maq.setTipoMaquina(dto.getTipoMaquina());
+		maq.setProblema(dto.getProblema());
+		maq.setIdCliente(daoCliente.findById(dto.getIdCliente()));
+		maq.setDtEntrada(dto.getDtEntrada());
+		maq.setStatus("");
+		maq.setFoto(dto.getFoto());
+		return maq;
+	}
+
+	@Override
+	public PedidoResponseDTO findById(Integer id) throws Exception{
+		try {
+			Pedidos maq = dao.findById(id);
+			return new PedidoResponseDTO(maq.getId(), maq.getTipoMaquina(), maq.getMarca(), maq.getProblema(),
+					maq.getIdCliente().getId(), maq.getDtEntrada(), maq.getFoto(), maq.getStatus());
+		} catch (NoResultException e) {
+			logger.severe(e.getMessage());
+			throw new Exception(id + " não encontrado");
+		}
+	}
+
+	@Override
+	public List<PedidoResponseDTO> getMaquinas(String marca) {
+		List<Pedidos> maquina = dao.find(marca);
+		return maquina.stream()
+				.map(maq -> new PedidoResponseDTO(maq.getId(), maq.getTipoMaquina(), maq.getMarca(), maq.getProblema(),
+						maq.getIdCliente().getId(), maq.getDtEntrada(), maq.getFoto(), maq.getStatus()))
+				.collect(Collectors.toList());
+	}
+
+	@Override
+	public List<PedidoResponseDTO> findByStatus(String status) {
+		List<Pedidos> maquina = dao.findByStatus(status);
+		return maquina.stream()
+				.map(maq -> new PedidoResponseDTO(maq.getId(), maq.getTipoMaquina(), maq.getMarca(), maq.getProblema(),
+						maq.getIdCliente().getId(), maq.getDtEntrada(), maq.getFoto(), maq.getStatus()))
+				.collect(Collectors.toList());
+	}
+
+	@Override
+	public List<PedidoResponseDTO> findByClientes(String nome) {
+		List<Pedidos> maquina = dao.findByClientes(nome);
+		return maquina.stream()
+				.map(maq -> new PedidoResponseDTO(maq.getId(), maq.getTipoMaquina(), maq.getMarca(), maq.getProblema(),
+						maq.getIdCliente().getId(), maq.getDtEntrada(), maq.getFoto(), maq.getStatus()))
+				.collect(Collectors.toList());
+	}
+
+}

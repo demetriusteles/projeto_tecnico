@@ -1,0 +1,24 @@
+package com.betha.projeto_manutencao.model.dto;
+
+import java.util.Calendar;
+
+public class ClienteResponseDTO {
+
+	private Integer id;
+	private String tipoMaquina;
+	private String marca;
+	private String problema;
+	private Integer idCliente;
+	private Calendar dtEntrada;
+	
+	public ClienteResponseDTO(Integer id, String tipoMaquina, String marca, String problema, Integer idCliente, Calendar dtEntrada) {
+		super();
+		this.id = id;
+		this.tipoMaquina = tipoMaquina;
+		this.marca = marca;
+		this.problema = problema;
+		this.idCliente = idCliente;
+		this.dtEntrada = dtEntrada;
+	}
+
+}

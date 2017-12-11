@@ -1,0 +1,148 @@
+package com.betha.projeto_manutencao.model.entity;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+/**
+ * @author <a href="mailto:luisdemetrius@gmail.com.br">Luis Demetrius Teles</a>
+ */
+
+@Entity(name = "usuarios")
+@Table(name = "usuarios")
+@SequenceGenerator(name = "sequenceUsuario", sequenceName = "seq_usuarios", allocationSize = 1, initialValue = 1)
+public class Usuarios implements BaseModel {
+
+	@Id
+	@Column(name = "id")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceUsuario")
+	private Integer codigo;
+
+	@Column(name = "nome", nullable = true)
+	private String nome;
+
+	@Column(name = "usuario", nullable = true)
+	private String usuario;
+
+	@Column(name = "setor", nullable = true)
+	private String setor;
+
+	@Column(name = "senha", nullable = true)
+	private String senha;
+
+	@Column(name = "token", nullable = true)
+	private String token;
+	
+	@Override
+	public String toString() {
+		return "Usuario [codigo=" + codigo + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((codigo == null) ? 0 : codigo.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Usuarios other = (Usuarios) obj;
+		if (codigo == null) {
+			if (other.codigo != null)
+				return false;
+		} else if (!codigo.equals(other.codigo))
+			return false;
+		return true;
+	}
+
+	/**
+	 * @return the codigo
+	 */
+	public Integer getCodigo() {
+		return codigo;
+	}
+
+	/**
+	 * @param codigo the codigo to set
+	 */
+	public void setCodigo(Integer codigo) {
+		this.codigo = codigo;
+	}
+
+	/**
+	 * @return the nome
+	 */
+	public String getNome() {
+		return nome;
+	}
+
+	/**
+	 * @param nome the nome to set
+	 */
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	/**
+	 * @return the usuario
+	 */
+	public String getUsuario() {
+		return usuario;
+	}
+
+	/**
+	 * @param usuario the usuario to set
+	 */
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
+	}
+
+	/**
+	 * @return the setor
+	 */
+	public String getSetor() {
+		return setor;
+	}
+
+	/**
+	 * @param setor the setor to set
+	 */
+	public void setSetor(String setor) {
+		this.setor = setor;
+	}
+
+	/**
+	 * @return the senha
+	 */
+	public String getSenha() {
+		return senha;
+	}
+
+	/**
+	 * @param senha the senha to set
+	 */
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+
+	public String getToken() {
+		return token;
+	}
+
+	public void setToken(String token) {
+		this.token = token;
+	}
+
+}

@@ -1,0 +1,13 @@
+package com.betha.projeto_manutencao.persistence.dao.jpa;
+
+import com.betha.projeto_manutencao.model.entity.Usuarios;
+import com.betha.projeto_manutencao.persistence.dao.CrudDao;
+
+public interface UsuarioDao extends CrudDao<Usuarios> {
+
+	Usuarios findByName(String name);
+
+	Usuarios findById(Integer id);
+
+	Usuarios findByToken(String usuario, String token);
+}

@@ -1,0 +1,90 @@
+package com.betha.projeto_manutencao.model.dto;
+
+public class ClienteResponseDTO {
+
+	private Integer codigo;
+	private String nome;
+	private String endereco;
+	private String telefone;
+	private String email;
+	
+	public ClienteResponseDTO(Integer codigo, String nome, String endereco, String endereco, String email) {
+		super();
+		this.codigo = codigo;
+		this.nome = nome;
+		this.usuario = usuario;
+		this.setor = setor;
+		this.senha = senha;
+		this.token = token;
+	}
+
+	/**
+	 * @return the codigo
+	 */
+	public Integer getCodigo() {
+		return codigo;
+	}
+
+	/**
+	 * @param codigo the codigo to set
+	 */
+	public void setCodigo(Integer codigo) {
+		this.codigo = codigo;
+	}
+
+	/**
+	 * @return the nome
+	 */
+	public String getNome() {
+		return nome;
+	}
+
+	/**
+	 * @param nome the nome to set
+	 */
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	/**
+	 * @return the endereco
+	 */
+	public String getEndereco() {
+		return endereco;
+	}
+
+	/**
+	 * @param endereco the endereco to set
+	 */
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
+	}
+
+	/**
+	 * @return the telefone
+	 */
+	public String getTelefone() {
+		return telefone;
+	}
+
+	/**
+	 * @param telefone the telefone to set
+	 */
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
+
+	/**
+	 * @return the email
+	 */
+	public String getEmail() {
+		return email;
+	}
+
+	/**
+	 * @param email the email to set
+	 */
+	public void setEmail(String email) {
+		this.email = email;
+	}
+}

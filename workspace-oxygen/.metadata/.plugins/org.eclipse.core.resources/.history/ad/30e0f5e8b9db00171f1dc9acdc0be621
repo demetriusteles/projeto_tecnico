@@ -1,0 +1,10 @@
+<dataset>
+	<usuarios id="10" nome="fred fred" edereco="Rua qwedr, 123" setor="cadastro" senha="123456" token="2017-09-12 00:00:00"/>
+	<usuarios id="12" nome="manoel manoel" edereco="wwwwww, 234" setor="manutencao" senha="123456" token="2017-09-12 00:00:00"/>
+</dataset>
+
+  id integer NOT NULL,
+  nome character varying(100),
+  edereco character varying(200),
+  telefone character varying(20),
+  email character varying(100),

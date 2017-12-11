@@ -1,0 +1,19 @@
+package com.betha.projeto_manutencao.persistence.dao.jpa;
+
+import com.betha.projeto_manutencao.model.entity.Usuarios;
+import com.betha.projeto_manutencao.persistence.dao.CrudDao;
+
+/**
+ * @author <a href="mailto:luis@diuno.com.br">Luis Demetrius Teles</a>
+ */
+
+public interface UsuarioDao extends CrudDao<Usuarios> {
+
+	Usuarios findById(Integer id);
+
+	Usuarios findByName(String name);
+	
+	Usuarios findBySetor(String name);
+
+	Usuarios findByToken(String usuario, String token);
+}

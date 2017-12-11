@@ -1,0 +1,108 @@
+package com.betha.projeto_manutencao.model.dto;
+
+import java.util.Calendar;
+
+public class ClienteResponseDTO {
+
+	private Integer id;
+	private String tipoMaquina;
+	private String marca;
+	private String problema;
+	private Integer idCliente;
+	private Calendar dtEntrada;
+	
+	public ClienteResponseDTO(Integer id, String tipoMaquina, String marca, String problema, Integer idCliente, Calendar dtEntrada) {
+		super();
+		this.id = id;
+		this.tipoMaquina = tipoMaquina;
+		this.marca = marca;
+		this.problema = problema;
+		this.idCliente = idCliente;
+		this.dtEntrada = dtEntrada;
+	}
+
+	/**
+	 * @return the id
+	 */
+	public Integer getId() {
+		return id;
+	}
+
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	/**
+	 * @return the tipoMaquina
+	 */
+	public String getTipoMaquina() {
+		return tipoMaquina;
+	}
+
+	/**
+	 * @param tipoMaquina the tipoMaquina to set
+	 */
+	public void setTipoMaquina(String tipoMaquina) {
+		this.tipoMaquina = tipoMaquina;
+	}
+
+	/**
+	 * @return the marca
+	 */
+	public String getMarca() {
+		return marca;
+	}
+
+	/**
+	 * @param marca the marca to set
+	 */
+	public void setMarca(String marca) {
+		this.marca = marca;
+	}
+
+	/**
+	 * @return the problema
+	 */
+	public String getProblema() {
+		return problema;
+	}
+
+	/**
+	 * @param problema the problema to set
+	 */
+	public void setProblema(String problema) {
+		this.problema = problema;
+	}
+
+	/**
+	 * @return the idCliente
+	 */
+	public Integer getIdCliente() {
+		return idCliente;
+	}
+
+	/**
+	 * @param idCliente the idCliente to set
+	 */
+	public void setIdCliente(Integer idCliente) {
+		this.idCliente = idCliente;
+	}
+
+	/**
+	 * @return the dtEntrada
+	 */
+	public Calendar getDtEntrada() {
+		return dtEntrada;
+	}
+
+	/**
+	 * @param dtEntrada the dtEntrada to set
+	 */
+	public void setDtEntrada(Calendar dtEntrada) {
+		this.dtEntrada = dtEntrada;
+	}
+
+}

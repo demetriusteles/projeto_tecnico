@@ -1,0 +1,44 @@
+package br.com.betha_project.jdbc;
+
+import java.net.URLDecoder;
+import java.net.URLEncoder;
+
+import javax.xml.bind.DatatypeConverter;
+
+public class Base64 {
+
+	public static void main(String[] args) {
+
+	
+		String encodedUrl = null;
+		String decodedUrl = null;
+		String str = "77+9x6s=";
+		System.out.println("original value is \t" + str);
+        // encode data using BASE64
+        str = DatatypeConverter.printBase64Binary(str.getBytes());
+        System.out.println("encoded value is \t" + str);
+        // Decode data 
+        str = new String(DatatypeConverter.parseBase64Binary(str));
+        System.out.println("decoded value is \t" + str);
+        String url = encoded;
+    	try {
+    		// encode data using UTF-8
+    		encodedUrl = URLEncoder.encode(url, "UTF-8");
+    		// decode data 
+    		decodedUrl = URLDecoder.decode(url, "UTF-8");
+		} catch (Exception e) {
+			try {
+				throw new Exception(e);
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		}
+    	
+    	
+    	System.out.println("\tEncoded URL " + encodedUrl);
+    	System.out.println("Dncoded URL " + decodedUrl);
+	
+	}
+
+}

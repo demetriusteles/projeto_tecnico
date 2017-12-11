@@ -1,0 +1,61 @@
+package com.betha.projeto_manutencao.persistence.dao.jpa;
+
+import javax.inject.Inject;
+import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
+
+import com.diuno.portal_contribuinte.model.entity.Usuario;
+import com.diuno.portal_contribuinte.persistence.config.DataSourceQualifier;
+import com.diuno.portal_contribuinte.persistence.dao.UsuarioDao;
+
+/**
+ * @author <a href="mailto:luis@diuno.com.br">Luis Demetrius Teles</a>
+ */
+
+public class UsuarioDaoJpa extends AbstractCrudDaoJpa<Usuario> implements UsuarioDao {
+	
+	@Inject
+	@DataSourceQualifier
+	private EntityManager entityManager;
+
+	@Override
+	public EntityManager getEntityManager() {
+		return entityManager;
+	}
+
+	@Override
+	public Class<Usuario> getModelClass() {
+		return Usuario.class;
+	}
+
+	@Override
+	public Usuario findByName(String name) {
+		String sql = "SELECT u FROM adm.Usuario u"
+				+ " WHERE (u.usuario = :name)";
+
+		final TypedQuery<Usuario> query = getEntityManager().createQuery(sql, Usuario.class);
+		query.setParameter("name", name);
+		return query.getSingleResult();
+	}
+
+	@Override
+	public Usuario findByToken(final String nomeUsuario, final String token) {
+		String sql = "SELECT u FROM adm.Usuario u join fetch u.login l"
+				+ " WHERE u.usuario = :usuario AND l.token = :token";
+
+		final TypedQuery<Usuario> query = getEntityManager().createQuery(sql, Usuario.class);
+		query.setParameter("usuario", nomeUsuario);
+		query.setParameter("token", token);
+		return query.getSingleResult();
+	}
+
+	@Override
+	public Usuario findByCpf(String cpf) {
+		String sql = "SELECT u FROM adm.Usuario u join fetch u.pessoa p"
+				+ " WHERE (p.numeroCpf = :cpf)";
+
+		final TypedQuery<Usuario> query = getEntityManager().createQuery(sql, Usuario.class);
+		query.setParameter("cpf", cpf);
+		return query.getSingleResult();
+	}
+}

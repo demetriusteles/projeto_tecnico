@@ -1,0 +1,275 @@
+2017-12-04 23:24:11,184 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 42) WFLYCLINF0001: Activating Infinispan subsystem.
+2017-12-04 23:24:11,228 INFO  [org.jboss.as.security] (ServerService Thread Pool -- 57) WFLYSEC0002: Activating Security Subsystem
+2017-12-04 23:24:11,248 INFO  [org.jboss.as.naming] (ServerService Thread Pool -- 50) WFLYNAM0001: Activating Naming Subsystem
+2017-12-04 23:24:11,222 WARN  [org.jboss.as.txn] (ServerService Thread Pool -- 58) WFLYTX0013: The node-identifier attribute on the /subsystem=transactions is set to the default value. This is a danger for environments running multiple servers. Please make sure the attribute value is unique.
+2017-12-04 23:24:11,224 INFO  [org.jboss.as.jsf] (ServerService Thread Pool -- 48) WFLYJSF0007: Activated the following JSF Implementations: [main]
+2017-12-04 23:24:11,226 INFO  [org.jboss.as.jaxrs] (ServerService Thread Pool -- 43) WFLYRS0016: RESTEasy version 3.0.24.Final
+2017-12-04 23:24:11,269 INFO  [org.jboss.as.webservices] (ServerService Thread Pool -- 60) WFLYWS0002: Activating WebServices Extension
+2017-12-04 23:24:11,314 INFO  [org.jboss.as.connector] (MSC service thread 1-1) WFLYJCA0009: Starting JCA Subsystem (WildFly/IronJacamar 1.4.6.Final)
+2017-12-04 23:24:11,325 INFO  [org.jboss.as.security] (MSC service thread 1-6) WFLYSEC0001: Current PicketBox version=5.0.2.Final
+2017-12-04 23:24:11,912 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-7) WFLYUT0003: Undertow 1.4.18.Final starting
+2017-12-04 23:24:13,192 INFO  [org.jboss.as.connector.subsystems.datasources] (ServerService Thread Pool -- 36) WFLYJCA0004: Deploying JDBC-compliant driver class org.h2.Driver (version 1.4)
+2017-12-04 23:24:13,195 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-4) WFLYJCA0018: Started Driver service with driver-name = h2
+2017-12-04 23:24:13,800 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 59) WFLYUT0014: Creating file handler for path '/Betha/wildfly-11.0.0/wildfly-11.0.0.Final/welcome-content' with options [directory-listing: 'false', follow-symlink: 'false', case-sensitive: 'true', safe-symlink-paths: '[]']
+2017-12-04 23:24:14,877 INFO  [org.jboss.as.naming] (MSC service thread 1-7) WFLYNAM0003: Starting Naming Service
+2017-12-04 23:24:14,878 INFO  [org.jboss.as.mail.extension] (MSC service thread 1-6) WFLYMAIL0001: Bound mail session [java:jboss/mail/Default]
+2017-12-04 23:24:14,988 INFO  [org.wildfly.extension.io] (ServerService Thread Pool -- 41) WFLYIO001: Worker 'default' has auto-configured to 8 core threads with 64 task threads based on your 4 available processors
+2017-12-04 23:24:14,993 INFO  [org.jboss.as.ejb3] (MSC service thread 1-2) WFLYEJB0482: Strict pool mdb-strict-max-pool is using a max instance size of 16 (per class), which is derived from the number of CPUs on this host.
+2017-12-04 23:24:14,994 INFO  [org.jboss.as.ejb3] (MSC service thread 1-4) WFLYEJB0481: Strict pool slsb-strict-max-pool is using a max instance size of 64 (per class), which is derived from thread worker pool sizing.
+2017-12-04 23:24:15,252 INFO  [org.jboss.as.ejb3] (MSC service thread 1-6) WFLYEJB0493: EJB subsystem suspension complete
+2017-12-04 23:24:15,374 INFO  [org.jboss.remoting] (MSC service thread 1-6) JBoss Remoting version 5.0.5.Final
+2017-12-04 23:24:15,637 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-6) WFLYJCA0001: Bound data source [java:jboss/datasources/ExampleDS]
+2017-12-04 23:24:15,643 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-1) WFLYUT0012: Started server default-server.
+2017-12-04 23:24:15,645 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-1) WFLYUT0018: Host default-host starting
+2017-12-04 23:24:16,027 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-1) WFLYUT0006: Undertow HTTP listener default listening on 127.0.0.1:8080
+2017-12-04 23:24:17,981 INFO  [org.jboss.as.patching] (MSC service thread 1-4) WFLYPAT0050: WildFly Full cumulative patch ID is: base, one-off patches include: none
+2017-12-04 23:24:18,130 WARN  [org.jboss.as.domain.management.security] (MSC service thread 1-7) WFLYDM0111: Keystore /Betha/wildfly-11.0.0/wildfly-11.0.0.Final/standalone/configuration/application.keystore not found, it will be auto generated on first use with a self signed certificate for host localhost
+2017-12-04 23:24:18,134 INFO  [org.jboss.as.server.deployment.scanner] (MSC service thread 1-6) WFLYDS0013: Started FileSystemDeploymentService for directory /Betha/wildfly-11.0.0/wildfly-11.0.0.Final/standalone/deployments
+2017-12-04 23:24:18,451 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-2) WFLYSRV0027: Starting deployment of "projeto-manutencao-ear-0.0.1-SNAPSHOT.ear" (runtime-name: "projeto-manutencao-ear-0.0.1-SNAPSHOT.ear")
+2017-12-04 23:24:19,512 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-1) WFLYUT0006: Undertow HTTPS listener https listening on 127.0.0.1:8443
+2017-12-04 23:24:19,692 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-2) WFLYSRV0207: Starting subdeployment (runtime-name: "projeto-manutencao-ejb-0.0.1-SNAPSHOT.jar")
+2017-12-04 23:24:19,692 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-7) WFLYSRV0207: Starting subdeployment (runtime-name: "projeto-manutencao-ejb-impl-0.0.1-SNAPSHOT.jar")
+2017-12-04 23:24:20,132 INFO  [org.jboss.ws.common.management] (MSC service thread 1-3) JBWS022052: Starting JBossWS 5.1.9.Final (Apache CXF 3.1.12) 
+2017-12-04 23:24:21,166 INFO  [org.jboss.as.jpa] (MSC service thread 1-4) WFLYJPA0002: Read persistence.xml for portal-contribuinte-pu
+2017-12-04 23:24:21,810 INFO  [org.jboss.weld.deployer] (MSC service thread 1-4) WFLYWELD0003: Processing weld deployment projeto-manutencao-ear-0.0.1-SNAPSHOT.ear
+2017-12-04 23:24:22,079 INFO  [org.hibernate.validator.internal.util.Version] (MSC service thread 1-4) HV000001: Hibernate Validator 5.3.5.Final
+2017-12-04 23:24:22,527 INFO  [org.jboss.weld.deployer] (MSC service thread 1-4) WFLYWELD0003: Processing weld deployment projeto-manutencao-ejb-impl-0.0.1-SNAPSHOT.jar
+2017-12-04 23:24:22,527 INFO  [org.jboss.weld.deployer] (MSC service thread 1-8) WFLYWELD0003: Processing weld deployment projeto-manutencao-ejb-0.0.1-SNAPSHOT.jar
+2017-12-04 23:24:23,301 INFO  [org.jboss.weld.Version] (MSC service thread 1-5) WELD-000900: 2.4.3 (Final)
+2017-12-04 23:24:24,027 INFO  [org.infinispan.factories.GlobalComponentRegistry] (MSC service thread 1-8) ISPN000128: Infinispan version: Infinispan 'Chakra' 8.2.8.Final
+2017-12-04 23:24:25,009 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 63) WFLYCLINF0002: Started client-mappings cache from ejb container
+2017-12-04 23:24:25,250 ERROR [org.jboss.as.controller.management-operation] (Controller Boot Thread) WFLYCTL0013: Operation ("deploy") failed - address: ([("deployment" => "projeto-manutencao-ear-0.0.1-SNAPSHOT.ear")]) - failure description: {"WFLYCTL0288: One or more services were unable to start due to one or more indirect dependencies not being available." => {
+    "Services that were unable to start:" => [
+        "jboss.deployment.subunit.\"projeto-manutencao-ear-0.0.1-SNAPSHOT.ear\".\"projeto-manutencao-ejb-0.0.1-SNAPSHOT.jar\".CdiValidatorFactoryService",
+        "jboss.deployment.subunit.\"projeto-manutencao-ear-0.0.1-SNAPSHOT.ear\".\"projeto-manutencao-ejb-impl-0.0.1-SNAPSHOT.jar\".CdiValidatorFactoryService",
+        "jboss.deployment.subunit.\"projeto-manutencao-ear-0.0.1-SNAPSHOT.ear\".\"projeto-manutencao-ejb-impl-0.0.1-SNAPSHOT.jar\".deploymentCompleteService",
+        "jboss.deployment.unit.\"projeto-manutencao-ear-0.0.1-SNAPSHOT.ear\".CdiValidatorFactoryService",
+        "jboss.deployment.unit.\"projeto-manutencao-ear-0.0.1-SNAPSHOT.ear\".WeldStartService",
+        "jboss.deployment.unit.\"projeto-manutencao-ear-0.0.1-SNAPSHOT.ear\".deploymentCompleteService",
+        "jboss.persistenceunit.\"projeto-manutencao-ear-0.0.1-SNAPSHOT.ear/projeto-manutencao-ejb-impl-0.0.1-SNAPSHOT.jar#portal-contribuinte-pu\"",
+        "jboss.persistenceunit.\"projeto-manutencao-ear-0.0.1-SNAPSHOT.ear/projeto-manutencao-ejb-impl-0.0.1-SNAPSHOT.jar#portal-contribuinte-pu\".__FIRST_PHASE__"
+    ],
+    "Services that may be the cause:" => ["jboss.jdbc-driver.postgresql"]
+}}
+2017-12-04 23:24:25,252 ERROR [org.jboss.as.controller.management-operation] (Controller Boot Thread) WFLYCTL0013: Operation ("add") failed - address: ([
+    ("subsystem" => "datasources"),
+    ("data-source" => "ProjetoManutencaoDS")
+]) - failure description: {
+    "WFLYCTL0412: Required services that are not installed:" => ["jboss.jdbc-driver.postgresql"],
+    "WFLYCTL0180: Services with missing/unavailable dependencies" => [
+        "jboss.driver-demander.java:jboss/datasources/ProjetoManutencaoDS is missing [jboss.jdbc-driver.postgresql]",
+        "org.wildfly.data-source.ProjetoManutencaoDS is missing [jboss.jdbc-driver.postgresql]"
+    ]
+}
+2017-12-04 23:24:25,255 ERROR [org.jboss.as.controller.management-operation] (Controller Boot Thread) WFLYCTL0013: Operation ("add") failed - address: ([
+    ("subsystem" => "datasources"),
+    ("data-source" => "ProjetoManutencaoDS")
+]) - failure description: {
+    "WFLYCTL0412: Required services that are not installed:" => [
+        "jboss.jdbc-driver.postgresql",
+        "jboss.jdbc-driver.postgresql"
+    ],
+    "WFLYCTL0180: Services with missing/unavailable dependencies" => [
+        "jboss.driver-demander.java:jboss/datasources/ProjetoManutencaoDS is missing [jboss.jdbc-driver.postgresql]",
+        "org.wildfly.data-source.ProjetoManutencaoDS is missing [jboss.jdbc-driver.postgresql]",
+        "org.wildfly.data-source.ProjetoManutencaoDS is missing [jboss.jdbc-driver.postgresql]"
+    ]
+}
+2017-12-04 23:24:25,294 INFO  [org.jboss.as.server] (ServerService Thread Pool -- 37) WFLYSRV0010: Deployed "projeto-manutencao-ear-0.0.1-SNAPSHOT.ear" (runtime-name : "projeto-manutencao-ear-0.0.1-SNAPSHOT.ear")
+2017-12-04 23:24:25,298 INFO  [org.jboss.as.controller] (Controller Boot Thread) WFLYCTL0183: Service status report
+WFLYCTL0184:    New missing/unsatisfied dependencies:
+      service jboss.jdbc-driver.postgresql (missing) dependents: [service jboss.driver-demander.java:jboss/datasources/ProjetoManutencaoDS, service org.wildfly.data-source.ProjetoManutencaoDS] 
+
+2017-12-04 23:24:25,472 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0212: Resuming server
+2017-12-04 23:24:25,474 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0060: Http management interface listening on http://127.0.0.1:9990/management
+2017-12-04 23:24:25,475 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0051: Admin console listening on http://127.0.0.1:9990
+2017-12-04 23:24:25,475 ERROR [org.jboss.as] (Controller Boot Thread) WFLYSRV0026: WildFly Full 11.0.0.Final (WildFly Core 3.0.8.Final) started (with errors) in 30099ms - Started 437 of 678 services (12 services failed or missing dependencies, 357 services are lazy, passive or on-demand)
+2017-12-04 23:57:57,225 INFO  [org.jboss.modules] (main) JBoss Modules version 1.6.1.Final
+2017-12-04 23:57:59,742 INFO  [org.jboss.msc] (main) JBoss MSC version 1.2.7.SP1
+2017-12-04 23:58:00,312 INFO  [org.jboss.as] (MSC service thread 1-7) WFLYSRV0049: WildFly Full 11.0.0.Final (WildFly Core 3.0.8.Final) starting
+2017-12-04 23:58:00,320 DEBUG [org.jboss.as.config] (MSC service thread 1-7) Configured system properties:
+	awt.toolkit = sun.awt.X11.XToolkit
+	file.encoding = UTF-8
+	file.encoding.pkg = sun.io
+	file.separator = /
+	java.awt.graphicsenv = sun.awt.X11GraphicsEnvironment
+	java.awt.headless = true
+	java.awt.printerjob = sun.print.PSPrinterJob
+	java.class.path = /Betha/wildfly-11.0.0/wildfly-11.0.0.Final/jboss-modules.jar:/usr/lib/jvm/java-8-oracle/jre/lib/resources.jar:/usr/lib/jvm/java-8-oracle/jre/lib/rt.jar:/usr/lib/jvm/java-8-oracle/jre/lib/jsse.jar:/usr/lib/jvm/java-8-oracle/jre/lib/jce.jar:/usr/lib/jvm/java-8-oracle/jre/lib/charsets.jar:/usr/lib/jvm/java-8-oracle/jre/lib/jfr.jar
+	java.class.version = 52.0
+	java.endorsed.dirs = /usr/lib/jvm/java-8-oracle/jre/lib/endorsed
+	java.ext.dirs = /usr/lib/jvm/java-8-oracle/jre/lib/ext:/usr/java/packages/lib/ext
+	java.home = /usr/lib/jvm/java-8-oracle/jre
+	java.io.tmpdir = /tmp
+	java.library.path = /usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib
+	java.net.preferIPv4Stack = true
+	java.runtime.name = Java(TM) SE Runtime Environment
+	java.runtime.version = 1.8.0_151-b12
+	java.specification.name = Java Platform API Specification
+	java.specification.vendor = Oracle Corporation
+	java.specification.version = 1.8
+	java.util.logging.manager = org.jboss.logmanager.LogManager
+	java.vendor = Oracle Corporation
+	java.vendor.url = http://java.oracle.com/
+	java.vendor.url.bug = http://bugreport.sun.com/bugreport/
+	java.version = 1.8.0_151
+	java.vm.info = mixed mode
+	java.vm.name = Java HotSpot(TM) 64-Bit Server VM
+	java.vm.specification.name = Java Virtual Machine Specification
+	java.vm.specification.vendor = Oracle Corporation
+	java.vm.specification.version = 1.8
+	java.vm.vendor = Oracle Corporation
+	java.vm.version = 25.151-b12
+	javax.management.builder.initial = org.jboss.as.jmx.PluggableMBeanServerBuilder
+	javax.xml.datatype.DatatypeFactory = __redirected.__DatatypeFactory
+	javax.xml.parsers.DocumentBuilderFactory = __redirected.__DocumentBuilderFactory
+	javax.xml.parsers.SAXParserFactory = __redirected.__SAXParserFactory
+	javax.xml.stream.XMLEventFactory = __redirected.__XMLEventFactory
+	javax.xml.stream.XMLInputFactory = __redirected.__XMLInputFactory
+	javax.xml.stream.XMLOutputFactory = __redirected.__XMLOutputFactory
+	javax.xml.transform.TransformerFactory = __redirected.__TransformerFactory
+	javax.xml.validation.SchemaFactory:http://www.w3.org/2001/XMLSchema = __redirected.__SchemaFactory
+	javax.xml.xpath.XPathFactory:http://java.sun.com/jaxp/xpath/dom = __redirected.__XPathFactory
+	jboss.bind.address = localhost
+	jboss.bind.address.management = localhost
+	jboss.home.dir = /Betha/wildfly-11.0.0/wildfly-11.0.0.Final
+	jboss.host.name = demetrius
+	jboss.modules.dir = /Betha/wildfly-11.0.0/wildfly-11.0.0.Final/modules
+	jboss.modules.system.pkgs = org.jboss.byteman
+	jboss.node.name = demetrius
+	jboss.qualified.host.name = demetrius
+	jboss.server.base.dir = /Betha/wildfly-11.0.0/wildfly-11.0.0.Final/standalone
+	jboss.server.config.dir = /Betha/wildfly-11.0.0/wildfly-11.0.0.Final/standalone/configuration
+	jboss.server.data.dir = /Betha/wildfly-11.0.0/wildfly-11.0.0.Final/standalone/data
+	jboss.server.deploy.dir = /Betha/wildfly-11.0.0/wildfly-11.0.0.Final/standalone/data/content
+	jboss.server.log.dir = /Betha/wildfly-11.0.0/wildfly-11.0.0.Final/standalone/log
+	jboss.server.name = demetrius
+	jboss.server.persist.config = true
+	jboss.server.temp.dir = /Betha/wildfly-11.0.0/wildfly-11.0.0.Final/standalone/tmp
+	line.separator = 
+
+	logging.configuration = file:/Betha/wildfly-11.0.0/wildfly-11.0.0.Final/standalone/configuration/logging.properties
+	module.path = /Betha/wildfly-11.0.0/wildfly-11.0.0.Final/modules
+	org.jboss.boot.log.file = /Betha/wildfly-11.0.0/wildfly-11.0.0.Final/standalone/log/boot.log
+	org.jboss.logmanager.nocolor = true
+	org.jboss.resolver.warning = true
+	org.xml.sax.driver = __redirected.__XMLReaderFactory
+	os.arch = amd64
+	os.name = Linux
+	os.version = 4.4.0-101-generic
+	path.separator = :
+	program.name = JBossTools: WildFly 11
+	sun.arch.data.model = 64
+	sun.boot.class.path = /usr/lib/jvm/java-8-oracle/jre/lib/resources.jar:/usr/lib/jvm/java-8-oracle/jre/lib/rt.jar:/usr/lib/jvm/java-8-oracle/jre/lib/sunrsasign.jar:/usr/lib/jvm/java-8-oracle/jre/lib/jsse.jar:/usr/lib/jvm/java-8-oracle/jre/lib/jce.jar:/usr/lib/jvm/java-8-oracle/jre/lib/charsets.jar:/usr/lib/jvm/java-8-oracle/jre/lib/jfr.jar:/usr/lib/jvm/java-8-oracle/jre/classes
+	sun.boot.library.path = /usr/lib/jvm/java-8-oracle/jre/lib/amd64
+	sun.cpu.endian = little
+	sun.cpu.isalist = 
+	sun.desktop = gnome
+	sun.io.unicode.encoding = UnicodeLittle
+	sun.java.command = org.jboss.modules.Main -mp /Betha/wildfly-11.0.0/wildfly-11.0.0.Final/modules org.jboss.as.standalone -b localhost --server-config=standalone.xml -Djboss.server.base.dir=/Betha/wildfly-11.0.0/wildfly-11.0.0.Final/standalone
+	sun.java.launcher = SUN_STANDARD
+	sun.jnu.encoding = UTF-8
+	sun.management.compiler = HotSpot 64-Bit Tiered Compilers
+	sun.os.patch.level = unknown
+	sun.rmi.dgc.client.gcInterval = 3600000
+	sun.rmi.dgc.server.gcInterval = 3600000
+	user.country = BR
+	user.dir = /Betha/wildfly-11.0.0/wildfly-11.0.0.Final/bin
+	user.home = /home/demetrius
+	user.language = pt
+	user.name = demetrius
+	user.timezone = America/Sao_Paulo
+2017-12-04 23:58:00,322 DEBUG [org.jboss.as.config] (MSC service thread 1-7) VM Arguments: -agentlib:jdwp=transport=dt_socket,suspend=y,address=localhost:33343 -Dprogram.name=JBossTools: WildFly 11 -Xms64m -Xmx512m -Dorg.jboss.resolver.warning=true -Djava.net.preferIPv4Stack=true -Dsun.rmi.dgc.client.gcInterval=3600000 -Dsun.rmi.dgc.server.gcInterval=3600000 -Djboss.modules.system.pkgs=org.jboss.byteman -Djava.awt.headless=true -Dorg.jboss.boot.log.file=/Betha/wildfly-11.0.0/wildfly-11.0.0.Final/standalone/log/boot.log -Dlogging.configuration=file:/Betha/wildfly-11.0.0/wildfly-11.0.0.Final/standalone/configuration/logging.properties -Djboss.home.dir=/Betha/wildfly-11.0.0/wildfly-11.0.0.Final -Dorg.jboss.logmanager.nocolor=true -Djboss.bind.address.management=localhost -Dfile.encoding=UTF-8 
+2017-12-04 23:58:08,561 INFO  [org.jboss.as.controller.management-deprecated] (Controller Boot Thread) WFLYCTL0028: Attribute 'security-realm' in the resource at address '/core-service=management/management-interface=http-interface' is deprecated, and may be removed in future version. See the attribute description in the output of the read-resource-description operation to learn more about the deprecation.
+2017-12-04 23:58:08,598 INFO  [org.wildfly.security] (ServerService Thread Pool -- 2) ELY00001: WildFly Elytron version 1.1.6.Final
+2017-12-04 23:58:08,609 INFO  [org.jboss.as.controller.management-deprecated] (ServerService Thread Pool -- 24) WFLYCTL0028: Attribute 'security-realm' in the resource at address '/subsystem=undertow/server=default-server/https-listener=https' is deprecated, and may be removed in future version. See the attribute description in the output of the read-resource-description operation to learn more about the deprecation.
+2017-12-04 23:58:08,660 INFO  [org.jboss.as.server.deployment.scanner] (DeploymentScanner-threads - 1) WFLYDS0004: Found projeto-manutencao-ear-0.0.1-SNAPSHOT.ear in deployment directory. To trigger deployment create a file called projeto-manutencao-ear-0.0.1-SNAPSHOT.ear.dodeploy
+2017-12-04 23:58:08,800 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0039: Creating http management service using socket-binding (management-http)
+2017-12-04 23:58:08,885 INFO  [org.xnio] (MSC service thread 1-5) XNIO version 3.5.4.Final
+2017-12-04 23:58:08,931 INFO  [org.xnio.nio] (MSC service thread 1-5) XNIO NIO Implementation Version 3.5.4.Final
+2017-12-04 23:58:08,955 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 42) WFLYCLINF0001: Activating Infinispan subsystem.
+2017-12-04 23:58:08,958 WARN  [org.jboss.as.txn] (ServerService Thread Pool -- 58) WFLYTX0013: The node-identifier attribute on the /subsystem=transactions is set to the default value. This is a danger for environments running multiple servers. Please make sure the attribute value is unique.
+2017-12-04 23:58:08,958 INFO  [org.jboss.as.jsf] (ServerService Thread Pool -- 48) WFLYJSF0007: Activated the following JSF Implementations: [main]
+2017-12-04 23:58:09,016 INFO  [org.jboss.as.jaxrs] (ServerService Thread Pool -- 43) WFLYRS0016: RESTEasy version 3.0.24.Final
+2017-12-04 23:58:09,031 INFO  [org.jboss.as.security] (ServerService Thread Pool -- 57) WFLYSEC0002: Activating Security Subsystem
+2017-12-04 23:58:09,040 INFO  [org.jboss.as.naming] (ServerService Thread Pool -- 50) WFLYNAM0001: Activating Naming Subsystem
+2017-12-04 23:58:09,063 INFO  [org.jboss.as.webservices] (ServerService Thread Pool -- 60) WFLYWS0002: Activating WebServices Extension
+2017-12-04 23:58:09,260 INFO  [org.jboss.as.security] (MSC service thread 1-1) WFLYSEC0001: Current PicketBox version=5.0.2.Final
+2017-12-04 23:58:09,270 INFO  [org.jboss.as.connector] (MSC service thread 1-7) WFLYJCA0009: Starting JCA Subsystem (WildFly/IronJacamar 1.4.6.Final)
+2017-12-04 23:58:09,924 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-2) WFLYUT0003: Undertow 1.4.18.Final starting
+2017-12-04 23:58:11,752 INFO  [org.jboss.as.connector.subsystems.datasources] (ServerService Thread Pool -- 36) WFLYJCA0004: Deploying JDBC-compliant driver class org.h2.Driver (version 1.4)
+2017-12-04 23:58:11,755 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-3) WFLYJCA0018: Started Driver service with driver-name = h2
+2017-12-04 23:58:11,765 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 59) WFLYUT0014: Creating file handler for path '/Betha/wildfly-11.0.0/wildfly-11.0.0.Final/welcome-content' with options [directory-listing: 'false', follow-symlink: 'false', case-sensitive: 'true', safe-symlink-paths: '[]']
+2017-12-04 23:58:11,839 INFO  [org.jboss.as.naming] (MSC service thread 1-6) WFLYNAM0003: Starting Naming Service
+2017-12-04 23:58:11,835 INFO  [org.jboss.as.mail.extension] (MSC service thread 1-2) WFLYMAIL0001: Bound mail session [java:jboss/mail/Default]
+2017-12-04 23:58:11,875 INFO  [org.wildfly.extension.io] (ServerService Thread Pool -- 41) WFLYIO001: Worker 'default' has auto-configured to 8 core threads with 64 task threads based on your 4 available processors
+2017-12-04 23:58:12,050 INFO  [org.jboss.as.ejb3] (MSC service thread 1-8) WFLYEJB0481: Strict pool slsb-strict-max-pool is using a max instance size of 64 (per class), which is derived from thread worker pool sizing.
+2017-12-04 23:58:12,050 INFO  [org.jboss.as.ejb3] (MSC service thread 1-4) WFLYEJB0482: Strict pool mdb-strict-max-pool is using a max instance size of 16 (per class), which is derived from the number of CPUs on this host.
+2017-12-04 23:58:12,765 INFO  [org.jboss.remoting] (MSC service thread 1-7) JBoss Remoting version 5.0.5.Final
+2017-12-04 23:58:12,774 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-4) WFLYUT0012: Started server default-server.
+2017-12-04 23:58:12,778 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-3) WFLYUT0018: Host default-host starting
+2017-12-04 23:58:12,858 INFO  [org.jboss.as.ejb3] (MSC service thread 1-6) WFLYEJB0493: EJB subsystem suspension complete
+2017-12-04 23:58:13,160 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-4) WFLYUT0006: Undertow HTTP listener default listening on 127.0.0.1:8080
+2017-12-04 23:58:13,193 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-2) WFLYJCA0001: Bound data source [java:jboss/datasources/ExampleDS]
+2017-12-04 23:58:14,558 INFO  [org.jboss.as.patching] (MSC service thread 1-5) WFLYPAT0050: WildFly Full cumulative patch ID is: base, one-off patches include: none
+2017-12-04 23:58:14,612 WARN  [org.jboss.as.domain.management.security] (MSC service thread 1-5) WFLYDM0111: Keystore /Betha/wildfly-11.0.0/wildfly-11.0.0.Final/standalone/configuration/application.keystore not found, it will be auto generated on first use with a self signed certificate for host localhost
+2017-12-04 23:58:14,630 INFO  [org.jboss.as.server.deployment.scanner] (MSC service thread 1-7) WFLYDS0013: Started FileSystemDeploymentService for directory /Betha/wildfly-11.0.0/wildfly-11.0.0.Final/standalone/deployments
+2017-12-04 23:58:14,703 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-4) WFLYSRV0027: Starting deployment of "projeto-manutencao-ear-0.0.1-SNAPSHOT.ear" (runtime-name: "projeto-manutencao-ear-0.0.1-SNAPSHOT.ear")
+2017-12-04 23:58:14,971 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-3) WFLYUT0006: Undertow HTTPS listener https listening on 127.0.0.1:8443
+2017-12-04 23:58:15,193 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-1) WFLYSRV0207: Starting subdeployment (runtime-name: "projeto-manutencao-ejb-0.0.1-SNAPSHOT.jar")
+2017-12-04 23:58:15,193 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-6) WFLYSRV0207: Starting subdeployment (runtime-name: "projeto-manutencao-ejb-impl-0.0.1-SNAPSHOT.jar")
+2017-12-04 23:58:15,618 INFO  [org.jboss.ws.common.management] (MSC service thread 1-3) JBWS022052: Starting JBossWS 5.1.9.Final (Apache CXF 3.1.12) 
+2017-12-04 23:58:16,419 INFO  [org.jboss.as.jpa] (MSC service thread 1-3) WFLYJPA0002: Read persistence.xml for projeto-manutencao-pu
+2017-12-04 23:58:16,900 INFO  [org.jboss.weld.deployer] (MSC service thread 1-3) WFLYWELD0003: Processing weld deployment projeto-manutencao-ear-0.0.1-SNAPSHOT.ear
+2017-12-04 23:58:17,141 INFO  [org.hibernate.validator.internal.util.Version] (MSC service thread 1-3) HV000001: Hibernate Validator 5.3.5.Final
+2017-12-04 23:58:17,357 INFO  [org.jboss.weld.deployer] (MSC service thread 1-7) WFLYWELD0003: Processing weld deployment projeto-manutencao-ejb-0.0.1-SNAPSHOT.jar
+2017-12-04 23:58:17,361 INFO  [org.jboss.weld.deployer] (MSC service thread 1-4) WFLYWELD0003: Processing weld deployment projeto-manutencao-ejb-impl-0.0.1-SNAPSHOT.jar
+2017-12-04 23:58:17,548 INFO  [org.jboss.weld.Version] (MSC service thread 1-7) WELD-000900: 2.4.3 (Final)
+2017-12-04 23:58:17,902 INFO  [org.infinispan.factories.GlobalComponentRegistry] (MSC service thread 1-2) ISPN000128: Infinispan version: Infinispan 'Chakra' 8.2.8.Final
+2017-12-04 23:58:18,496 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 62) WFLYCLINF0002: Started client-mappings cache from ejb container
+2017-12-04 23:58:18,607 ERROR [org.jboss.as.controller.management-operation] (Controller Boot Thread) WFLYCTL0013: Operation ("deploy") failed - address: ([("deployment" => "projeto-manutencao-ear-0.0.1-SNAPSHOT.ear")]) - failure description: {"WFLYCTL0288: One or more services were unable to start due to one or more indirect dependencies not being available." => {
+    "Services that were unable to start:" => [
+        "jboss.deployment.subunit.\"projeto-manutencao-ear-0.0.1-SNAPSHOT.ear\".\"projeto-manutencao-ejb-0.0.1-SNAPSHOT.jar\".CdiValidatorFactoryService",
+        "jboss.deployment.subunit.\"projeto-manutencao-ear-0.0.1-SNAPSHOT.ear\".\"projeto-manutencao-ejb-impl-0.0.1-SNAPSHOT.jar\".CdiValidatorFactoryService",
+        "jboss.deployment.subunit.\"projeto-manutencao-ear-0.0.1-SNAPSHOT.ear\".\"projeto-manutencao-ejb-impl-0.0.1-SNAPSHOT.jar\".deploymentCompleteService",
+        "jboss.deployment.unit.\"projeto-manutencao-ear-0.0.1-SNAPSHOT.ear\".CdiValidatorFactoryService",
+        "jboss.deployment.unit.\"projeto-manutencao-ear-0.0.1-SNAPSHOT.ear\".WeldStartService",
+        "jboss.deployment.unit.\"projeto-manutencao-ear-0.0.1-SNAPSHOT.ear\".deploymentCompleteService",
+        "jboss.persistenceunit.\"projeto-manutencao-ear-0.0.1-SNAPSHOT.ear/projeto-manutencao-ejb-impl-0.0.1-SNAPSHOT.jar#projeto-manutencao-pu\"",
+        "jboss.persistenceunit.\"projeto-manutencao-ear-0.0.1-SNAPSHOT.ear/projeto-manutencao-ejb-impl-0.0.1-SNAPSHOT.jar#projeto-manutencao-pu\".__FIRST_PHASE__"
+    ],
+    "Services that may be the cause:" => ["jboss.jdbc-driver.postgresql"]
+}}
+2017-12-04 23:58:18,609 ERROR [org.jboss.as.controller.management-operation] (Controller Boot Thread) WFLYCTL0013: Operation ("add") failed - address: ([
+    ("subsystem" => "datasources"),
+    ("data-source" => "ProjetoManutencaoDS")
+]) - failure description: {
+    "WFLYCTL0412: Required services that are not installed:" => ["jboss.jdbc-driver.postgresql"],
+    "WFLYCTL0180: Services with missing/unavailable dependencies" => [
+        "jboss.driver-demander.java:jboss/datasources/ProjetoManutencaoDS is missing [jboss.jdbc-driver.postgresql]",
+        "org.wildfly.data-source.ProjetoManutencaoDS is missing [jboss.jdbc-driver.postgresql]"
+    ]
+}
+2017-12-04 23:58:18,612 ERROR [org.jboss.as.controller.management-operation] (Controller Boot Thread) WFLYCTL0013: Operation ("add") failed - address: ([
+    ("subsystem" => "datasources"),
+    ("data-source" => "ProjetoManutencaoDS")
+]) - failure description: {
+    "WFLYCTL0412: Required services that are not installed:" => [
+        "jboss.jdbc-driver.postgresql",
+        "jboss.jdbc-driver.postgresql"
+    ],
+    "WFLYCTL0180: Services with missing/unavailable dependencies" => [
+        "jboss.driver-demander.java:jboss/datasources/ProjetoManutencaoDS is missing [jboss.jdbc-driver.postgresql]",
+        "org.wildfly.data-source.ProjetoManutencaoDS is missing [jboss.jdbc-driver.postgresql]",
+        "org.wildfly.data-source.ProjetoManutencaoDS is missing [jboss.jdbc-driver.postgresql]"
+    ]
+}
+2017-12-04 23:58:18,627 INFO  [org.jboss.as.server] (ServerService Thread Pool -- 37) WFLYSRV0010: Deployed "projeto-manutencao-ear-0.0.1-SNAPSHOT.ear" (runtime-name : "projeto-manutencao-ear-0.0.1-SNAPSHOT.ear")
+2017-12-04 23:58:18,631 INFO  [org.jboss.as.controller] (Controller Boot Thread) WFLYCTL0183: Service status report
+WFLYCTL0184:    New missing/unsatisfied dependencies:
+      service jboss.jdbc-driver.postgresql (missing) dependents: [service jboss.driver-demander.java:jboss/datasources/ProjetoManutencaoDS, service org.wildfly.data-source.ProjetoManutencaoDS] 
+
+2017-12-04 23:58:18,760 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0212: Resuming server
+2017-12-04 23:58:18,764 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0060: Http management interface listening on http://127.0.0.1:9990/management
+2017-12-04 23:58:18,764 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0051: Admin console listening on http://127.0.0.1:9990
+2017-12-04 23:58:18,765 ERROR [org.jboss.as] (Controller Boot Thread) WFLYSRV0026: WildFly Full 11.0.0.Final (WildFly Core 3.0.8.Final) started (with errors) in 23098ms - Started 437 of 678 services (12 services failed or missing dependencies, 357 services are lazy, passive or on-demand)

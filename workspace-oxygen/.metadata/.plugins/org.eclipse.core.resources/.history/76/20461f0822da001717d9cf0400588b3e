@@ -1,0 +1,163 @@
+package com.betha.projeto_manutencao.service.impl;
+
+import java.security.NoSuchAlgorithmException;
+import java.util.Base64;
+import java.util.Calendar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import javax.ejb.Stateless;
+import javax.inject.Inject;
+import javax.persistence.NoResultException;
+import javax.security.auth.login.AccountException;
+
+import com.betha.projeto_manutencao.model.dto.UsuarioResponseDTO;
+import com.betha.projeto_manutencao.model.entity.Usuarios;
+import com.betha.projeto_manutencao.persistence.dao.UsuarioDao;
+import com.betha.projeto_manutencao.security.HashUtils;
+import com.betha.projeto_manutencao.service.AccountService;
+
+@Stateless
+public class AccountServiceImpl implements AccountService {
+	private static final Logger logger = Logger.getLogger(AccountServiceImpl.class.getName());
+	
+	@Inject
+	private UsuarioDao usuarioDao;
+
+	@Override
+	public UsuarioResponseDTO findByToken(final String nomeUsuario, final String token) throws AccountException {
+		try {
+			Usuarios usuario = usuarioDao.findByToken(nomeUsuario, token);
+			return new UsuarioResponseDTO(usuario.getCodigo(), usuario.getNome(), usuario.getUsuario(),
+					usuario.getSetor(), usuario.getSenha(), usuario.getToken());
+		} catch (NoResultException e) {
+			logger.severe(e.getMessage());
+			throw new AccountException("Token inválido: " + token);
+		}
+	}
+
+	@Override
+	public UsuarioResponseDTO login(String authorization) throws AccountException {
+		String[] info = getAuthInfo(authorization);
+        String usuario = info[0];
+        String senha = info[1];
+
+        try {
+			Usuarios usuarios = usuarioDao.findByUsuario(usuario);
+			if (usuarios.getUsuario() == null) {
+				logger.log(Level.WARNING, "Usuário sem login: " + usuarios.getUsuario());
+				throw new AccountException("Login inválido");
+			}
+			validaSenha(usuarios.getUsuario(), senha, usuarios.getLogin().getSenha());
+			geraToken(usuarios);
+			return new UsuarioResponseDTO(usuarios.getCodigo(), usuarios.getNome(), usuarios.getUsuario(),
+					usuarios.getSetor(), usuarios.getSenha(), usuarios.getToken());
+        } catch (NoResultException e) {
+            logger.log(Level.SEVERE, e.getMessage(), e);
+        	throw new AccountException("Login inválido");
+		}
+
+	}
+
+	@Override
+	public String create(UsuarioResponseDTO dto) throws AccountException {
+		Usuarios usuario = resolveUsuario(dto);
+		
+		if (usuario.getUsuario() != null) {
+			logger.log(Level.WARNING, "Login duplicado: " + usuario.getUsuario());
+			throw new AccountException("Login duplicado.");
+		}
+		usuario.setLogin(newLogin(dto, usuario));
+		usuarioDao.create(usuario);
+		return "OK";
+	}
+
+/*	Pessoa resolvePessoa(final UsuarioRegistroDTO usuarioRegistro) {
+		final Pessoa pessoa = buscaPessoa(usuarioRegistro.getCpf());
+		return pessoa == null ? criaPessoa(usuarioRegistro) : pessoa;
+	}*/
+
+/*	Pessoa buscaPessoa(final String cpf) {
+		try {
+			return pessoaDao.findByCpf(cpf);
+		} catch (NoResultException e) {
+			return null;
+		}
+	}*/
+
+/*	Pessoa criaPessoa(final UsuarioRegistroDTO usuarioRegistro) {
+		final PessoaFisica pessoa = new PessoaFisica();
+		pessoa.setNumeroCpf(usuarioRegistro.getCpf());
+		pessoa.setNomePessoa(usuarioRegistro.getNome());
+		pessoa.setNomePessoaReduzido(usuarioRegistro.getNome());
+		pessoa.setEnderecoEmail(usuarioRegistro.getEmail());
+		pessoa.setSituacaoPessoa(1);
+		return pessoa;
+	}*/
+
+	Usuarios resolveUsuario(final UsuarioResponseDTO dto) {
+		final Usuarios usuario = buscaUsuario(dto.getUsuario());
+		return usuario == null ? criaUsuario(dto) : usuario;
+	}
+
+	Usuarios buscaUsuario(final String nomeUsuario) {
+		try {
+			return usuarioDao.findByName(nomeUsuario);
+		} catch (NoResultException e) {
+			return null;
+		}
+	}
+
+	Usuarios criaUsuario(final UsuarioResponseDTO dto) {
+		final Usuarios usuario = new Usuarios();
+		usuario.setCodigo(dto.getCodigo()); 
+		usuario.setNome(dto.getNome()); 
+		usuario.setUsuario(dto.getUsuario());
+		usuario.setSetor(dto.getSetor()); 
+		usuario.setSenha(dto.getSenha()); 
+		usuario.setToken(dto.getToken());// #
+		return usuario;
+	}
+
+	String geraHashSenha(final String usuario, final String senha) {
+        return HashUtils.hashPassword(usuario, senha);
+	}
+
+	private void geraToken(final Usuarios usuario) throws AccountException {
+        try {
+            usuario.setToken(HashUtils.generateToken());
+            usuarioDao.update(usuario);
+        } catch (NoSuchAlgorithmException e) {
+            logger.log(Level.SEVERE, e.getMessage(), e);
+            throw new AccountException(e.getMessage());
+        }
+    }
+
+	private void validaSenha(final String usuario, final String senhaInformada, final String senhaEsperada) throws AccountException {
+        if (senhaEsperada == null) {
+            logger.warning("Usuário '" + usuario + "' sem senha.");
+            throw new AccountException("Login inválido");
+        }
+        if (senhaEsperada.equals(HashUtils.hashPassword(usuario, senhaInformada))) {
+           return;
+        }
+
+        logger.warning("Senha informada '" + senhaInformada + "' inválida para usuário '" + usuario + "'");
+        throw new AccountException("Login inválido");
+    }	
+	
+	private String[] getAuthInfo(String authorization) {
+//        String basicAuthEncoded = authorization.split(" ")[1];
+//        String basicAuthDecoded = new String(Base64.getDecoder().decode(basicAuthEncoded));
+        String basicAuthDecoded = new String(Base64.getDecoder().decode(authorization));
+        return basicAuthDecoded.split(":");
+    }
+
+	private Usuarios newLogin(UsuarioResponseDTO usuarioRegistro) {
+		Usuarios login = new Usuarios();
+		login.setUsuario(usuarioRegistro.getUsuario());
+		login.setSenha(geraHashSenha(usuarioRegistro.getUsuario(), usuarioRegistro.getSenha()));
+		return login;
+	}
+
+}

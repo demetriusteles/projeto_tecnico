@@ -1,0 +1,51 @@
+package com.betha.projeto_manutencao.model.dto;
+
+import java.util.Calendar;
+
+public class LoginResponseDTO {
+
+	private Integer id;
+	private String nome;
+	private String usuario;
+	private String token;
+	private Calendar dtLogin;
+	
+	public LoginResponseDTO(Integer id, String nome, String usuario, String token, Calendar dtLogin) {
+		super();
+		this.id = id;
+		this.nome = nome;
+		this.usuario = usuario;
+		this.token = token;
+		this.dtLogin = dtLogin;
+	}
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	public String getNome() {
+		return nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	public String getUsuario() {
+		return usuario;
+	}
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
+	}
+	public String getToken() {
+		return token;
+	}
+	public void setToken(String token) {
+		this.token = token;
+	}
+	public Calendar getDtLogin() {
+		return dtLogin;
+	}
+	public void setDtLogin(Calendar dtLogin) {
+		this.dtLogin = dtLogin;
+	}
+}

@@ -1,0 +1,133 @@
+package com.betha.projeto_manutencao.persistence.dao.jpa;
+
+import java.util.Calendar;
+import java.util.List;
+
+import javax.inject.Inject;
+import javax.persistence.EntityManager;
+
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+
+import com.betha.projeto_manutencao.it.JpaBasedDBTestCase;
+import com.betha.projeto_manutencao.it.WeldJUnit4Runner;
+import com.betha.projeto_manutencao.model.entity.Usuarios;
+import com.betha.projeto_manutencao.persistence.dao.UsuarioDao;
+
+@RunWith(WeldJUnit4Runner.class)
+public class UsuarioDaoJpaIT extends JpaBasedDBTestCase {
+	@Inject
+	private UsuarioDao daoUsuario;
+
+	@Override
+	protected String getDataSetPath() {
+		return "/dataset/Usuario.xml";
+	}
+
+	@Override
+	protected EntityManager getEntityManager() {
+		return daoUsuario.getEntityManager();
+	}
+
+	@Before
+	public void setUp() throws Exception {
+		super.setUp();
+	}
+
+	@Test
+	public void deveBuscarUsuarios() {
+		List<Usuarios> usuarios = daoUsuario.find("");
+		Assert.assertNotNull(usuarios);
+		Assert.assertEquals(2, usuarios.size());
+	}
+
+	@Test
+	public void deveBuscarUsuariosComTermoNulo() {
+		List<Usuarios> usuarios = daoUsuario.find(null);
+		Assert.assertNotNull(usuarios);
+		Assert.assertEquals(2, usuarios.size());
+	}
+
+	@Test
+	public void deveBuscarUsuarioPorId() {
+		Integer id = 10;
+		Usuarios usuario = daoUsuario.findById(id);
+		Assert.assertNotNull(usuario);
+		Assert.assertEquals(id, usuario.getId());
+	}
+	
+	@Test
+	public void deveBuscarUsuarioPorNome() {
+		String name = "fred fred";
+		Usuarios usuario = daoUsuario.findByName(name);
+		Assert.assertNotNull(usuario);
+		Assert.assertEquals(name, usuario.getNome());
+	}
+	@Test
+	public void deveBuscarUsuarioPorUsuario() {
+		String usuario = "manoel";
+		Usuarios usuario = daoUsuario.findByName(usuario);
+		Assert.assertNotNull(usuario);
+		Assert.assertEquals(usuario, usuario.getNome());
+	}
+	
+	@Test
+	public void deveBuscarUsuarioPorCpf() {
+		String cpf = "98765432110";
+		Usuario usuario = daoUsuario.findByCpf(cpf);
+		Assert.assertNotNull(usuario);
+		Assert.assertEquals(cpf, ((PessoaFisica) usuario.getPessoa()).getNumeroCpf());
+		Assert.assertNotNull(usuario.getPessoa().getCodigoPessoa());
+		Assert.assertNotNull(usuario.getLogin().getId());
+	}
+	
+	@Test
+	public void deveBuscarUsuarioPorToken() {
+		String nomeUsuario = "pimpolho";
+		String token = "54321";
+		Usuario usuario = daoUsuario.findByToken(nomeUsuario, token);
+		Assert.assertNotNull(usuario);
+		Assert.assertEquals(nomeUsuario, usuario.getUsuario());
+		Assert.assertEquals(token, usuario.getLogin().getToken());
+	}
+
+	@Test
+	public void deveCriarUmNovoUsuario() {
+		String userName = "jonelson";
+		String displayName = "Jonelson";
+		Pessoa pessoa = new PessoaFisica();
+		pessoa.setNomePessoa(displayName);
+		pessoa.setNomePessoaReduzido(displayName);
+		pessoa.setTipoPessoa("F");
+		
+		Usuario usuario = new Usuario();
+		usuario.setPessoa(pessoa);
+		usuario.setUsuario(userName);
+		usuario.setIndicadorBloqueado('N');
+
+		Login login = new Login();
+		login.setUsuario(usuario);
+		login.setEmail("jonelson@email.com");
+		login.setSenha("4321");
+		login.setDtLogin(Calendar.getInstance());
+
+		usuario.setLogin(login);
+		
+		Usuario usuarioCriado = daoUsuario.create(usuario);
+		Assert.assertNotNull(usuarioCriado);
+		Assert.assertNotNull(usuarioCriado.getCodigo());
+		Assert.assertNotNull(usuarioCriado.getPessoa().getCodigoPessoa());
+		Assert.assertNotNull(usuarioCriado.getLogin().getId());
+		
+		Turno turno = daoTurno.findById(1);
+		UsuarioTurno usuarioTurno = new UsuarioTurno();
+		usuarioTurno.setUsuario(usuario);
+		usuarioTurno.setTurno(turno);
+		
+		UsuarioTurno usuarioTurnoCriado = daoUsuarioTurno.create(usuarioTurno);
+		Assert.assertNotNull(usuarioTurnoCriado);
+		Assert.assertNotNull(usuarioTurnoCriado.getCodigo());
+	}
+}
